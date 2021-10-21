@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A33CE252721743400E7E49B /* LyricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CE242721743400E7E49B /* LyricViewController.swift */; };
+		8A33CE2727217B8000E7E49B /* APILyricData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CE2627217B8000E7E49B /* APILyricData.swift */; };
+		8A33CE2927217BC200E7E49B /* SongLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CE2827217BC200E7E49B /* SongLyric.swift */; };
+		8A48ABE2271D7C1000E59026 /* APILyricsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A48ABE1271D7C1000E59026 /* APILyricsData.swift */; };
+		8A49CA312716F07000870F9B /* SongItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A49CA302716F07000870F9B /* SongItems.swift */; };
 		8A819F0B2715B04A0045B027 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F0A2715B04A0045B027 /* AppDelegate.swift */; };
 		8A819F0D2715B04A0045B027 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F0C2715B04A0045B027 /* SceneDelegate.swift */; };
 		8A819F0F2715B04A0045B027 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F0E2715B04A0045B027 /* ViewController.swift */; };
@@ -16,6 +21,7 @@
 		8A819F222715B04B0045B027 /* SongLyricsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F212715B04B0045B027 /* SongLyricsTests.swift */; };
 		8A819F2C2715B04B0045B027 /* SongLyricsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F2B2715B04B0045B027 /* SongLyricsUITests.swift */; };
 		8A819F2E2715B04B0045B027 /* SongLyricsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F2D2715B04B0045B027 /* SongLyricsUITestsLaunchTests.swift */; };
+		8A9B73F627184AFA00934786 /* APILyricsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B73F527184AFA00934786 /* APILyricsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A33CE242721743400E7E49B /* LyricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricViewController.swift; sourceTree = "<group>"; };
+		8A33CE2627217B8000E7E49B /* APILyricData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILyricData.swift; sourceTree = "<group>"; };
+		8A33CE2827217BC200E7E49B /* SongLyric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongLyric.swift; sourceTree = "<group>"; };
+		8A48ABE1271D7C1000E59026 /* APILyricsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILyricsData.swift; sourceTree = "<group>"; };
+		8A49CA302716F07000870F9B /* SongItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongItems.swift; sourceTree = "<group>"; };
 		8A819F072715B04A0045B027 /* SongLyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongLyrics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A819F0A2715B04A0045B027 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A819F0C2715B04A0045B027 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +60,7 @@
 		8A819F272715B04B0045B027 /* SongLyricsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SongLyricsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A819F2B2715B04B0045B027 /* SongLyricsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongLyricsUITests.swift; sourceTree = "<group>"; };
 		8A819F2D2715B04B0045B027 /* SongLyricsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongLyricsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8A9B73F527184AFA00934786 /* APILyricsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILyricsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +88,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A48ABE0271D7B1800E59026 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8A9B73F527184AFA00934786 /* APILyricsManager.swift */,
+				8A48ABE1271D7C1000E59026 /* APILyricsData.swift */,
+				8A49CA302716F07000870F9B /* SongItems.swift */,
+				8A33CE2627217B8000E7E49B /* APILyricData.swift */,
+				8A33CE2827217BC200E7E49B /* SongLyric.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8A79921D271EED8300BDB569 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8A819F0E2715B04A0045B027 /* ViewController.swift */,
+				8A33CE242721743400E7E49B /* LyricViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		8A819EFE2715B04A0045B027 = {
 			isa = PBXGroup;
 			children = (
@@ -99,9 +132,10 @@
 		8A819F092715B04A0045B027 /* SongLyrics */ = {
 			isa = PBXGroup;
 			children = (
+				8A79921D271EED8300BDB569 /* ViewControllers */,
+				8A48ABE0271D7B1800E59026 /* Models */,
 				8A819F0A2715B04A0045B027 /* AppDelegate.swift */,
 				8A819F0C2715B04A0045B027 /* SceneDelegate.swift */,
-				8A819F0E2715B04A0045B027 /* ViewController.swift */,
 				8A819F102715B04A0045B027 /* Main.storyboard */,
 				8A819F132715B04B0045B027 /* Assets.xcassets */,
 				8A819F152715B04B0045B027 /* LaunchScreen.storyboard */,
@@ -259,8 +293,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A819F0F2715B04A0045B027 /* ViewController.swift in Sources */,
+				8A33CE252721743400E7E49B /* LyricViewController.swift in Sources */,
 				8A819F0B2715B04A0045B027 /* AppDelegate.swift in Sources */,
+				8A33CE2927217BC200E7E49B /* SongLyric.swift in Sources */,
 				8A819F0D2715B04A0045B027 /* SceneDelegate.swift in Sources */,
+				8A49CA312716F07000870F9B /* SongItems.swift in Sources */,
+				8A9B73F627184AFA00934786 /* APILyricsManager.swift in Sources */,
+				8A33CE2727217B8000E7E49B /* APILyricData.swift in Sources */,
+				8A48ABE2271D7C1000E59026 /* APILyricsData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
