@@ -7,27 +7,35 @@
 
 import UIKit
 
-protocol ViewControllerDelegate: class {
-    func showLyric (_: ViewController, with Lyric: String)
-}
-
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, APILyricsManagerDelegate {
+    
     
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
-    weak var delegate: ViewControllerDelegate?
     var lyricManager = APILyricsManager()
     var songItems = [SongItems]()
-    var lyric: String = ""
+    var lyric: String = "ghbd"
+    var trackID: Int = 0
     
     func getLyric(_: APILyricsManager, with APIData: String) {
-        lyric = APIData
-        self.delegate?.showLyric(self, with: lyric)
+        self.lyric = APIData
+        
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "ShowLyric", sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as? LyricViewController
+        vc?.lyric = lyric
     }
     
     func updateTableData(_: APILyricsManager, with APIData: [SongItems]) {
         songItems = APIData
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,12 +67,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             present(alert, animated: true, completion: nil)
         }
         else {
-            
-            let trackID = selectedCell.trackId
-            lyricManager.getLyricOnAPILibrary(withID: trackID)
-//            self.delegate?.showLyric(self, with: lyric)
-            performSegue(withIdentifier: "ShowLyric", sender: .none )
-
+            self.lyricManager.getLyricOnAPILibrary(withID: selectedCell.trackId)
         }
     }
     
@@ -72,10 +75,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.reloadData()
     }
     
+    
     @IBAction func changeTextField(_ sender: Any) {
-        if let text = searchTextField.text {
+        if let text = self.searchTextField.text {
             lyricManager.searchInAPILibrary(withWords: text)
-            tableView.reloadData()
         }
     }
     

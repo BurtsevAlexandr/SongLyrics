@@ -37,11 +37,13 @@ class APILyricsManager {
         urlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let url = URL(string: urlString)
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url!) { [self] data, response, error in
+        let task = session.dataTask(with: url!) { [weak self] data, response, error in
             if let data = data {
-                if let lyric = self.parseJSONLyric(withData: data) {
-                    
-                    self.delegate?.getLyric(self, with: lyric)
+                if let lyric = self?.parseJSONLyric(withData: data) {
+//                    DispatchQueue.global(qos: .background).async {
+//                        self.delegate?.getLyric(self, with: lyric)
+//                    }
+                    self?.delegate?.getLyric(self!, with: lyric)
                 }
             }
         }

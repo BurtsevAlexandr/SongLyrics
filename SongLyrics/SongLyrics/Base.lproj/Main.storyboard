@@ -71,7 +71,7 @@
                     <connections>
                         <outlet property="searchTextField" destination="LEl-KX-v6O" id="0p1-O6-ocF"/>
                         <outlet property="tableView" destination="NFg-R4-W3i" id="Sbp-Qy-6OQ"/>
-                        <segue destination="XM2-z9-6B8" kind="show" identifier="ShowLyric" id="yLp-nX-ga6"/>
+                        <segue destination="XM2-z9-6B8" kind="presentation" identifier="ShowLyric" id="yLp-nX-ga6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

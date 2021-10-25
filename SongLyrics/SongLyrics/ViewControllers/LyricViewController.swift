@@ -9,22 +9,14 @@ import Foundation
 import UIKit
 
 
-class LyricViewController: UIViewController, ViewControllerDelegate {
-    
-    
+class LyricViewController: UIViewController {
+    var lyric: String = ""
+
     @IBOutlet weak var LyricTextView: UITextView!
     
-    var viewController = ViewController()
-    var lyricBody: String = "gbpltw"
-    
-    func showLyric(_: ViewController, with Lyric: String) {
-        lyricBody = Lyric
-        print(lyricBody)
-        LyricTextView.text = lyricBody
-    }
-    
     override func viewDidLoad() {
+        LyricTextView.text = lyric
         super.viewDidLoad()
-        self.viewController.delegate = self
+        
     }
 }
