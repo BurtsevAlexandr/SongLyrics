@@ -52,7 +52,7 @@
                                     <constraint firstAttribute="width" constant="84" id="dWC-GA-2UM"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Поиск"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Search"/>
                                 <connections>
                                     <action selector="search:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QP9-EI-h2k"/>
                                 </connections>
@@ -133,9 +133,11 @@
                         <viewLayoutGuide key="safeArea" id="Qgt-KT-1BF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="iGC-zF-uab" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mRX-BU-a8M" secondAttribute="trailing" constant="8" symbolic="YES" id="22c-Lu-EIf"/>
                             <constraint firstItem="KW7-UY-mXu" firstAttribute="top" secondItem="Qgt-KT-1BF" secondAttribute="top" constant="11" id="7BD-gF-U3o"/>
                             <constraint firstItem="955-1w-NcG" firstAttribute="top" secondItem="Qgt-KT-1BF" secondAttribute="top" constant="11" id="8By-Go-kJ3"/>
                             <constraint firstItem="3j9-IE-sLj" firstAttribute="leading" secondItem="Qgt-KT-1BF" secondAttribute="leading" constant="16" id="Gfm-lp-oEm"/>
+                            <constraint firstItem="KW7-UY-mXu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="955-1w-NcG" secondAttribute="trailing" constant="8" symbolic="YES" id="IUc-vD-D9T"/>
                             <constraint firstItem="3j9-IE-sLj" firstAttribute="top" secondItem="mRX-BU-a8M" secondAttribute="bottom" constant="8" symbolic="YES" id="OQW-ys-XF8"/>
                             <constraint firstItem="955-1w-NcG" firstAttribute="leading" secondItem="Qgt-KT-1BF" secondAttribute="leading" constant="16" id="W8S-0o-XzQ"/>
                             <constraint firstItem="Qgt-KT-1BF" firstAttribute="trailing" secondItem="3j9-IE-sLj" secondAttribute="trailing" constant="16" id="Wg0-iM-Z61"/>

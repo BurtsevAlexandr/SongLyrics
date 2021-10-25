@@ -28,7 +28,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    func getLyric(_: APILyricsManager, with APIData: TrackData) {
+    func setLyric(_: APILyricsManager, with APIData: TrackData) {
         self.track = APIData
         
         DispatchQueue.main.async {

@@ -9,7 +9,7 @@ import Foundation
 
 protocol APILyricsManagerDelegate: class {
     func updateTableData(_: APILyricsManager, with APIData: [TrackData])
-    func getLyric(_: APILyricsManager, with APIData: TrackData)
+    func setLyric(_: APILyricsManager, with APIData: TrackData)
 }
 
 class APILyricsManager {
@@ -42,7 +42,7 @@ class APILyricsManager {
             if let data = data {
                 if let lyric = self?.parseJSONLyric(withData: data) {
                     track.lyricBody = lyric
-                    self?.delegate?.getLyric(self!, with: track)
+                    self?.delegate?.setLyric(self!, with: track)
                 }
             }
         }
