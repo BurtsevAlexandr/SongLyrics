@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct APILyricsData: Decodable {
+struct APITracksData: Decodable {
     let message: Message
 }
 

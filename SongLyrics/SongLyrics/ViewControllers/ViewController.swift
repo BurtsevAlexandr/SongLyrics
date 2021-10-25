@@ -9,46 +9,47 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, APILyricsManagerDelegate {
     
-    
-    @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var tableView: UITableView!
-    
-    var lyricManager = APILyricsManager()
-    var songItems = [SongItems]()
-    var lyric: String = "ghbd"
-    var trackID: Int = 0
-    
-    func getLyric(_: APILyricsManager, with APIData: String) {
-        self.lyric = APIData
+    func getLyric(_: APILyricsManager, with APIData: TrackData) {
+        self.track = APIData
         
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "ShowLyric", sender: nil)
         }
     }
     
+    
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var lyricManager = APILyricsManager()
+    var tracksList = [TrackData]()
+    var track = TrackData(trackName: "", artistName: "", trackId: 0, hasLyric: 0, lyricBody: "")
+    var lyric: String = "ghbd"
+    var trackID: Int = 0
+        
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as? LyricViewController
-        vc?.lyric = lyric
+        vc?.track = track
     }
     
-    func updateTableData(_: APILyricsManager, with APIData: [SongItems]) {
-        songItems = APIData
+    func updateTableData(_: APILyricsManager, with APIData: [TrackData]) {
+        tracksList = APIData
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return songItems.count
+        return tracksList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.allowsSelection = true
         let cell = tableView.dequeueReusableCell(withIdentifier: "SongItem", for: indexPath)
-        let songsList = songItems[indexPath.row]
-        cell.textLabel!.text = songsList.songName
-        cell.detailTextLabel!.text = songsList.authorName
-        if (songsList.hasSong == 0) {
+        let songsList = tracksList[indexPath.row]
+        cell.textLabel!.text = songsList.trackName
+        cell.detailTextLabel!.text = songsList.artistName
+        if (songsList.hasLyric == 0) {
             cell.accessoryType = .none
         }
         else {
@@ -58,16 +59,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCell = songItems[indexPath.row]
+        let selectedCell = tracksList[indexPath.row]
         
-        if (selectedCell.hasSong == 0) {
-            let alert = UIAlertController (title: title, message: "You score:" ,preferredStyle: .alert)
+        if (selectedCell.hasLyric == 0) {
+            let alert = UIAlertController (title: title, message: "Sorry, this track hasn't lyric" ,preferredStyle: .alert)
             let action = UIAlertAction (title: "OK", style: .default, handler: .none)
             alert.addAction(action)
             present(alert, animated: true, completion: nil)
         }
         else {
-            self.lyricManager.getLyricOnAPILibrary(withID: selectedCell.trackId)
+            lyricManager.getLyricOnAPILibrary(withTrack: selectedCell)
         }
     }
     

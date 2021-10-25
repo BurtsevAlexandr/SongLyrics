@@ -10,12 +10,18 @@ import UIKit
 
 
 class LyricViewController: UIViewController {
-    var lyric: String = ""
+    
+    var track = TrackData(trackName: "", artistName: "", trackId: 0, hasLyric: 0, lyricBody: "Не удалось найти текст")
 
     @IBOutlet weak var LyricTextView: UITextView!
+    @IBOutlet weak var trackNameLabel: UILabel!
+    @IBOutlet weak var artistNameLabel: UILabel!
     
     override func viewDidLoad() {
-        LyricTextView.text = lyric
+        LyricTextView.text = track.lyricBody
+        trackNameLabel.text = track.trackName
+        artistNameLabel.text = track.artistName
+        
         super.viewDidLoad()
         
     }
