@@ -15,6 +15,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var lyricManager = APILyricsManager()
     var tracksList = [TrackData]()
     var track = TrackData(trackName: "", artistName: "", trackId: 0, hasLyric: 0, lyricBody: "")
+    
+    private var debouncer: Debouncer!
+    private var textFieldValue = "" {
+        didSet {
+            debouncer.call()
+        }
+    }
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as? LyricViewController
@@ -33,6 +40,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "ShowLyric", sender: nil)
+        }
+    }
+    
+    func showError(_: APILyricsManager) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController (title: "Connection error", message: "Unable to contact server. Please check you internet connection or try again later!" ,preferredStyle: .alert)
+            let action = UIAlertAction (title: "OK", style: .default, handler: .none)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -103,26 +119,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+//    func tableView(
     
     @IBAction func search(_ sender: Any) {
+        tracksList.removeAll()
         if let text = self.searchTextField.text {
             lyricManager.searchInAPILibrary(withWords: text)
         }
         tableView.reloadData()
     }
     
-    
     @IBAction func changeTextField(_ sender: Any) {
-        if let text = self.searchTextField.text {
-            lyricManager.searchInAPILibrary(withWords: text)
-        }
+        textFieldValue = (sender as? UITextField)?.text ?? ""
+        tracksList.removeAll()
+//        let text = textFieldValue
+//        lyricManager.searchInAPILibrary(withWords: text)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        debouncer = Debouncer.init(delay: 0.5, callback: debouncerApiCall)
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.lyricManager.delegate = self
+    }
+    
+    private func debouncerApiCall() {
+        lyricManager.searchInAPILibrary(withWords: textFieldValue)
     }
 }
 

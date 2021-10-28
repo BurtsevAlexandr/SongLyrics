@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		8A33CE252721743400E7E49B /* LyricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CE242721743400E7E49B /* LyricViewController.swift */; };
 		8A33CE2727217B8000E7E49B /* APILyricData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CE2627217B8000E7E49B /* APILyricData.swift */; };
-		8A33CE2927217BC200E7E49B /* SongLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CE2827217BC200E7E49B /* SongLyric.swift */; };
-		8A48ABE2271D7C1000E59026 /* APITraksData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A48ABE1271D7C1000E59026 /* APITraksData.swift */; };
+		8A3DB0AF2726FDC600E1B6C2 /* DebouncerAPIRecuest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3DB0AE2726FDC600E1B6C2 /* DebouncerAPIRecuest.swift */; };
+		8A48ABE2271D7C1000E59026 /* APITracksData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A48ABE1271D7C1000E59026 /* APITracksData.swift */; };
 		8A49CA312716F07000870F9B /* TrackData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A49CA302716F07000870F9B /* TrackData.swift */; };
 		8A819F0B2715B04A0045B027 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F0A2715B04A0045B027 /* AppDelegate.swift */; };
 		8A819F0D2715B04A0045B027 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F0C2715B04A0045B027 /* SceneDelegate.swift */; };
@@ -44,8 +44,8 @@
 /* Begin PBXFileReference section */
 		8A33CE242721743400E7E49B /* LyricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricViewController.swift; sourceTree = "<group>"; };
 		8A33CE2627217B8000E7E49B /* APILyricData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILyricData.swift; sourceTree = "<group>"; };
-		8A33CE2827217BC200E7E49B /* SongLyric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongLyric.swift; sourceTree = "<group>"; };
-		8A48ABE1271D7C1000E59026 /* APITraksData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITraksData.swift; sourceTree = "<group>"; };
+		8A3DB0AE2726FDC600E1B6C2 /* DebouncerAPIRecuest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebouncerAPIRecuest.swift; sourceTree = "<group>"; };
+		8A48ABE1271D7C1000E59026 /* APITracksData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITracksData.swift; sourceTree = "<group>"; };
 		8A49CA302716F07000870F9B /* TrackData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackData.swift; sourceTree = "<group>"; };
 		8A819F072715B04A0045B027 /* SongLyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongLyrics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A819F0A2715B04A0045B027 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,10 +92,10 @@
 			isa = PBXGroup;
 			children = (
 				8A9B73F527184AFA00934786 /* APILyricsManager.swift */,
-				8A48ABE1271D7C1000E59026 /* APITraksData.swift */,
+				8A48ABE1271D7C1000E59026 /* APITracksData.swift */,
 				8A49CA302716F07000870F9B /* TrackData.swift */,
 				8A33CE2627217B8000E7E49B /* APILyricData.swift */,
-				8A33CE2827217BC200E7E49B /* SongLyric.swift */,
+				8A3DB0AE2726FDC600E1B6C2 /* DebouncerAPIRecuest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -295,12 +295,12 @@
 				8A819F0F2715B04A0045B027 /* ViewController.swift in Sources */,
 				8A33CE252721743400E7E49B /* LyricViewController.swift in Sources */,
 				8A819F0B2715B04A0045B027 /* AppDelegate.swift in Sources */,
-				8A33CE2927217BC200E7E49B /* SongLyric.swift in Sources */,
 				8A819F0D2715B04A0045B027 /* SceneDelegate.swift in Sources */,
 				8A49CA312716F07000870F9B /* TrackData.swift in Sources */,
 				8A9B73F627184AFA00934786 /* APILyricsManager.swift in Sources */,
 				8A33CE2727217B8000E7E49B /* APILyricData.swift in Sources */,
-				8A48ABE2271D7C1000E59026 /* APITraksData.swift in Sources */,
+				8A48ABE2271D7C1000E59026 /* APITracksData.swift in Sources */,
+				8A3DB0AF2726FDC600E1B6C2 /* DebouncerAPIRecuest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
