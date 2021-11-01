@@ -15,6 +15,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var lyricManager = APILyricsManager()
     var tracksList = [TrackData]()
     var track = TrackData(trackName: "", artistName: "", trackId: 0, hasLyric: 0, lyricBody: "")
+    var searchNumberPage: Int = 1
+//    var checkLoad: Int = 1
     
     private var debouncer: Debouncer!
     private var textFieldValue = "" {
@@ -22,16 +24,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             debouncer.call()
         }
     }
-        
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as? LyricViewController
         vc?.track = track
     }
     //MARK: API Lyric Manager delegates
     func updateTableData(_: APILyricsManager, with APIData: [TrackData]) {
-        tracksList = APIData
+        tracksList = tracksList + APIData
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            self.searchNumberPage += 1
+//            self.checkLoad = self.searchNumberPage
         }
     }
     
@@ -76,7 +80,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.detailTextLabel!.text = .none
             cell.accessoryType = .none
             tableView.allowsSelection = false
-//            cell.layer.borderColor = .none
             return cell
         }
         else {
@@ -85,10 +88,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 cell.detailTextLabel!.text = .none
                 cell.accessoryType = .none
                 tableView.allowsSelection = false
-//                cell.layer.borderColor = .none
                 return cell
             }
             else {
+                
                 let songsList = tracksList[indexPath.row]
                 cell.textLabel!.text = songsList.trackName
                 cell.detailTextLabel!.text = songsList.artistName
@@ -104,10 +107,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        if (tableView.contentSize.height - 800 < tableView.contentOffset.y && searchNumberPage == checkLoad) {
+//            checkLoad += 1
+//            lyricManager.searchInAPILibrary(with: textFieldValue, with: searchNumberPage)
+//        }
+//    }
     //MARK: Table view delegate
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if (indexPath.row == tracksList.count - 5) {
+            if let text = searchTextField.text {
+                lyricManager.searchInAPILibrary(with: text, with: searchNumberPage)
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCell = tracksList[indexPath.row]
         
+        let selectedCell = tracksList[indexPath.row]
         if (selectedCell.hasLyric == 0) {
             let alert = UIAlertController (title: title, message: "Sorry, this track hasn't lyric" ,preferredStyle: .alert)
             let action = UIAlertAction (title: "OK", style: .default, handler: .none)
@@ -119,21 +136,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-//    func tableView(
-    
     @IBAction func search(_ sender: Any) {
         tracksList.removeAll()
         if let text = self.searchTextField.text {
-            lyricManager.searchInAPILibrary(withWords: text)
+            if (text != "") {
+                lyricManager.searchInAPILibrary(with: text, with: searchNumberPage)
+                tableView.reloadData()
+            }
         }
-        tableView.reloadData()
     }
     
     @IBAction func changeTextField(_ sender: Any) {
-        textFieldValue = (sender as? UITextField)?.text ?? ""
         tracksList.removeAll()
-//        let text = textFieldValue
-//        lyricManager.searchInAPILibrary(withWords: text)
+        tableView.reloadData()
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableView.ScrollPosition.top, animated: true)
+        searchNumberPage = 1
+        textFieldValue = (sender as? UITextField)?.text ?? ""
     }
     
     override func viewDidLoad() {
@@ -145,7 +163,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     private func debouncerApiCall() {
-        lyricManager.searchInAPILibrary(withWords: textFieldValue)
+        if let text = self.searchTextField.text {
+            lyricManager.searchInAPILibrary(with: text, with: searchNumberPage)
+        }
     }
 }
 
