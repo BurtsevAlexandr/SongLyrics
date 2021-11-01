@@ -34,7 +34,7 @@ class APILyricsManager {
                 }
             }
             else {
-                if error == nil {
+                if (error?.localizedDescription != Optional("cancelled")) {
                     self.delegate?.showError(self)
                 }
             }

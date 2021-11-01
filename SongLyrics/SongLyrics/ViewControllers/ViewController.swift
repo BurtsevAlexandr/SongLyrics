@@ -16,7 +16,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var tracksList = [TrackData]()
     var track = TrackData(trackName: "", artistName: "", trackId: 0, hasLyric: 0, lyricBody: "")
     var searchNumberPage: Int = 1
-//    var checkLoad: Int = 1
     
     private var debouncer: Debouncer!
     private var textFieldValue = "" {
@@ -35,7 +34,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         DispatchQueue.main.async {
             self.tableView.reloadData()
             self.searchNumberPage += 1
-//            self.checkLoad = self.searchNumberPage
         }
     }
     
@@ -107,12 +105,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        if (tableView.contentSize.height - 800 < tableView.contentOffset.y && searchNumberPage == checkLoad) {
-//            checkLoad += 1
-//            lyricManager.searchInAPILibrary(with: textFieldValue, with: searchNumberPage)
-//        }
-//    }
     //MARK: Table view delegate
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if (indexPath.row == tracksList.count - 5) {
