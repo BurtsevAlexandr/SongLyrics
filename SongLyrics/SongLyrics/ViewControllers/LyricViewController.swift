@@ -11,7 +11,7 @@ import UIKit
 
 class LyricViewController: UIViewController {
     
-    var track = TrackData(trackName: "", artistName: "", trackId: 0, hasLyric: 0, lyricBody: "Не удалось найти текст")
+    var track = TrackData(trackName: "", artistName: "", trackId: "", hasLyric: 0, lyricBody: "Не удалось найти текст", lyricChecksum: "")
 
     @IBOutlet weak var LyricTextView: UITextView!
     @IBOutlet weak var trackNameLabel: UILabel!

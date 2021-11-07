@@ -7,15 +7,21 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, APILyricsManagerDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, XMLParserDelegate, APILyricsManagerDelegate {
     
+    
+    @IBOutlet weak var segmentControlAPILibrary: UISegmentedControl!
+    @IBOutlet weak var segmentControlSearchAttributes: UISegmentedControl!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
     var lyricManager = APILyricsManager()
     var tracksList = [TrackData]()
-    var track = TrackData(trackName: "", artistName: "", trackId: 0, hasLyric: 0, lyricBody: "")
+    var track = TrackData(trackName: "", artistName: "", trackId: "", hasLyric: 0, lyricBody: "", lyricChecksum: "")
     var searchNumberPage: Int = 1
+    var objectSearch = ModelObjectSearch(markOfSelectedLibrary: "", markOfSearchAttribute: "", artistName: "", trackName: "", wordsSearch: "", searchNumberPage: 1)
+    
+    let textFieldForTrack = UITextField()
     
     private var debouncer: Debouncer!
     private var textFieldValue = "" {
@@ -23,7 +29,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             debouncer.call()
         }
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as? LyricViewController
         vc?.track = track
@@ -72,7 +78,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.allowsSelection = true
         let cell = tableView.dequeueReusableCell(withIdentifier: "SongItem", for: indexPath)
-        
         if searchTextField.text == nil || searchTextField.text == "" {
             cell.textLabel!.text = "Enter the words to search for"
             cell.detailTextLabel!.text = .none
@@ -89,7 +94,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 return cell
             }
             else {
-                
+
                 let songsList = tracksList[indexPath.row]
                 cell.textLabel!.text = songsList.trackName
                 cell.detailTextLabel!.text = songsList.artistName
@@ -109,7 +114,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if (indexPath.row == tracksList.count - 5) {
             if let text = searchTextField.text {
-                lyricManager.searchInAPILibrary(with: text, with: searchNumberPage)
+//                lyricManager.searchInAPILibrary(with: text, with: searchNumberPage)
             }
         }
     }
@@ -128,12 +133,83 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    
+    @IBAction func changedValueSegmentControlSearchAttribetes(_ sender: Any) {
+        if segmentControlAPILibrary.selectedSegmentIndex == 0 {
+            if segmentControlSearchAttributes.selectedSegmentIndex == 0 {
+                objectSearch.markOfSearchAttribute = "Artist"
+                searchTextField.placeholder = "Enter the artist of track"
+            }
+            else if segmentControlSearchAttributes.selectedSegmentIndex == 1 {
+                objectSearch.markOfSearchAttribute = "Track"
+                searchTextField.placeholder = "Enter the name of track"
+            }
+            else {
+                objectSearch.markOfSearchAttribute = "All"
+                searchTextField.placeholder = "Enter the words to search for"
+            }
+        }
+        else {
+            if segmentControlSearchAttributes.selectedSegmentIndex == 1 {
+                textFieldForTrack.frame.size.width = searchTextField.frame.size.width
+                textFieldForTrack.frame.size.height = searchTextField.frame.size.height
+                textFieldForTrack.frame.origin.x = searchTextField.frame.origin.x
+                textFieldForTrack.frame.origin.y = searchTextField.frame.origin.y + searchTextField.frame.size.height + 10
+                textFieldForTrack.borderStyle = searchTextField.borderStyle
+                textFieldForTrack.placeholder = "Enter the name of track"
+                searchTextField.placeholder = "Enter the artist of track"
+                tableView.frame.origin.y = textFieldForTrack.frame.origin.y + textFieldForTrack.frame.size.height + 10
+                self.view.addSubview(textFieldForTrack)
+                objectSearch.markOfSearchAttribute = "Atribute-Artist and track"
+            }
+            else {
+                if textFieldForTrack.superview == self.view.viewWithTag(3)  {
+                    tableView.frame.origin.y = searchTextField.frame.origin.y + searchTextField.frame.size.height + 10
+                    textFieldForTrack.removeFromSuperview()
+                    objectSearch.markOfSearchAttribute = "Atribute-Fragment text lyric"
+                    searchTextField.placeholder = "Enter the fragment of text lyric"
+                }
+            }
+        }
+    }
+    
+    @IBAction func changedValueSegmentControlAPILibrary(_ sender: Any) {
+        if segmentControlAPILibrary.selectedSegmentIndex == 0 {
+            if textFieldForTrack.superview == self.view.viewWithTag(3)  {
+                tableView.frame.origin.y = searchTextField.frame.origin.y + searchTextField.frame.size.height + 10
+                textFieldForTrack.removeFromSuperview()
+            }
+            segmentControlSearchAttributes.removeAllSegments()
+            segmentControlSearchAttributes.insertSegment(with: .none, at: 0, animated: false)
+            segmentControlSearchAttributes.insertSegment(with: .none, at: 1, animated: false)
+            segmentControlSearchAttributes.insertSegment(with: .none, at: 2, animated: false)
+            segmentControlSearchAttributes.setTitle("Artist", forSegmentAt: 0)
+            segmentControlSearchAttributes.setTitle("Track", forSegmentAt: 1)
+            segmentControlSearchAttributes.setTitle("All", forSegmentAt: 2)
+            segmentControlSearchAttributes.selectedSegmentIndex = 0
+            objectSearch.markOfSelectedLibrary = "API-MusixMatch"
+            objectSearch.markOfSearchAttribute = "Artist"
+            searchTextField.placeholder = "Enter the artist of track"
+        }
+        else {
+            segmentControlSearchAttributes.removeAllSegments()
+            segmentControlSearchAttributes.insertSegment(with: .none, at: 0, animated: false)
+            segmentControlSearchAttributes.insertSegment(with: .none, at: 1, animated: false)
+            segmentControlSearchAttributes.setTitle("Fragment text lyric", forSegmentAt: 0)
+            segmentControlSearchAttributes.setTitle("Artist and track", forSegmentAt: 1)
+            segmentControlSearchAttributes.selectedSegmentIndex = 0
+            objectSearch.markOfSelectedLibrary = "API-ChartLyric"
+            objectSearch.markOfSearchAttribute = "Atribute-Fragment text lyric"
+            searchTextField.placeholder = "Enter the fragment of text lyric"
+        }
+    }
+    
     @IBAction func search(_ sender: Any) {
         tracksList.removeAll()
         if let text = self.searchTextField.text {
             if (text != "") {
-                lyricManager.searchInAPILibrary(with: text, with: searchNumberPage)
-                tableView.reloadData()
+                lyricManager.searchInApiLibrary(for: objectSearch)
+                searchNumberPage = 1
             }
         }
     }
@@ -143,11 +219,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.reloadData()
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableView.ScrollPosition.top, animated: true)
         searchNumberPage = 1
-        textFieldValue = (sender as? UITextField)?.text ?? ""
+        objectSearch.wordsSearch = (sender as? UITextField)?.text ?? ""
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        segmentControlAPILibrary.selectedSegmentIndex = 0
+        segmentControlSearchAttributes.selectedSegmentIndex = 0
+        objectSearch.markOfSelectedLibrary = "API-MusixMatch"
+        objectSearch.markOfSearchAttribute = "Artist"
+        searchTextField.placeholder = "Enter the artist of track"
         debouncer = Debouncer.init(delay: 0.5, callback: debouncerApiCall)
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -156,7 +237,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     private func debouncerApiCall() {
         if let text = self.searchTextField.text {
-            lyricManager.searchInAPILibrary(with: text, with: searchNumberPage)
+//            lyricManager.searchInAPILibrary(with: text, with: searchNumberPage)
         }
     }
 }

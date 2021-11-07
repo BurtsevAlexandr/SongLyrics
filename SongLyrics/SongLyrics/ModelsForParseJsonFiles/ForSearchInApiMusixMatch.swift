@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct APITracksData: Decodable {
+struct ForSearchInApiMusixMatch: Decodable {
     let message: Message
 }
 

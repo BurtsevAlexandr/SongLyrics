@@ -7,17 +7,19 @@
 
 import Foundation
 class TrackData: NSObject {
-    var trackName: String = ""
-    var artistName: String = ""
-    var trackId: Int = 0
-    var hasLyric: Int = 0
-    var lyricBody: String = ""
-    init (trackName: String, artistName: String, trackId: Int, hasLyric: Int, lyricBody: String?) {
+    var trackName: String
+    var artistName: String
+    var trackId: String
+    var hasLyric: Int
+    var lyricBody: String
+    var lyricChecksum: String
+    init (trackName: String, artistName: String, trackId: String, hasLyric: Int, lyricBody: String?, lyricChecksum: String) {
         self.trackName = trackName
         self.artistName = artistName
         self.trackId = trackId
         self.hasLyric = hasLyric
         self.lyricBody = lyricBody ?? ""
+        self.lyricChecksum = lyricChecksum
         super.init()
     }
 }
