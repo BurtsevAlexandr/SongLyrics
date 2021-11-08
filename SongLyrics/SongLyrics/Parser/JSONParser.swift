@@ -13,7 +13,6 @@ class JSONParser {
             let decoder = JSONDecoder()
             let APILyricManager = try decoder.decode(ForSearchInApiMusixMatch.self, from: data)
             let count = APILyricManager.message.body.trackList.count
-            print (count)
             var arraySongs = [TrackData]()
             var i: Int = 0
             while i < count {
