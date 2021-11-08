@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct APILyricData: Decodable {
+struct ForGetLyricInApiMusixMatch: Decodable {
     let message: Message1
 }
 

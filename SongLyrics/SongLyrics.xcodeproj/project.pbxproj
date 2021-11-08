@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		8A33CE252721743400E7E49B /* LyricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CE242721743400E7E49B /* LyricViewController.swift */; };
-		8A33CE2727217B8000E7E49B /* APILyricData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CE2627217B8000E7E49B /* APILyricData.swift */; };
+		8A33CE2727217B8000E7E49B /* ForGetLyricInApiMusixMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CE2627217B8000E7E49B /* ForGetLyricInApiMusixMatch.swift */; };
 		8A3DB0AF2726FDC600E1B6C2 /* DebouncerAPIRecuest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3DB0AE2726FDC600E1B6C2 /* DebouncerAPIRecuest.swift */; };
 		8A48ABE2271D7C1000E59026 /* ForSearchInApiMusixMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A48ABE1271D7C1000E59026 /* ForSearchInApiMusixMatch.swift */; };
 		8A49CA312716F07000870F9B /* TrackData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A49CA302716F07000870F9B /* TrackData.swift */; };
+		8A4FB8CC273885F0009EA283 /* XMLParserForSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FB8CB273885F0009EA283 /* XMLParserForSearch.swift */; };
+		8A4FB8CE273887E1009EA283 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FB8CD273887E1009EA283 /* JSONParser.swift */; };
+		8A4FB8D027389FB0009EA283 /* XMLParserForGetLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FB8CF27389FB0009EA283 /* XMLParserForGetLyric.swift */; };
 		8A5BFC802732CA3000472802 /* ModelObjectSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5BFC7F2732CA3000472802 /* ModelObjectSearch.swift */; };
 		8A819F0B2715B04A0045B027 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F0A2715B04A0045B027 /* AppDelegate.swift */; };
 		8A819F0D2715B04A0045B027 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F0C2715B04A0045B027 /* SceneDelegate.swift */; };
@@ -44,10 +47,13 @@
 
 /* Begin PBXFileReference section */
 		8A33CE242721743400E7E49B /* LyricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricViewController.swift; sourceTree = "<group>"; };
-		8A33CE2627217B8000E7E49B /* APILyricData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILyricData.swift; sourceTree = "<group>"; };
+		8A33CE2627217B8000E7E49B /* ForGetLyricInApiMusixMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForGetLyricInApiMusixMatch.swift; sourceTree = "<group>"; };
 		8A3DB0AE2726FDC600E1B6C2 /* DebouncerAPIRecuest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebouncerAPIRecuest.swift; sourceTree = "<group>"; };
 		8A48ABE1271D7C1000E59026 /* ForSearchInApiMusixMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForSearchInApiMusixMatch.swift; sourceTree = "<group>"; };
 		8A49CA302716F07000870F9B /* TrackData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackData.swift; sourceTree = "<group>"; };
+		8A4FB8CB273885F0009EA283 /* XMLParserForSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParserForSearch.swift; sourceTree = "<group>"; };
+		8A4FB8CD273887E1009EA283 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		8A4FB8CF27389FB0009EA283 /* XMLParserForGetLyric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParserForGetLyric.swift; sourceTree = "<group>"; };
 		8A5BFC7F2732CA3000472802 /* ModelObjectSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelObjectSearch.swift; sourceTree = "<group>"; };
 		8A819F072715B04A0045B027 /* SongLyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongLyrics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A819F0A2715B04A0045B027 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +99,7 @@
 		8A3E3E5627340F51003F36E0 /* ModelsForParseJsonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				8A33CE2627217B8000E7E49B /* ForGetLyricInApiMusixMatch.swift */,
 				8A48ABE1271D7C1000E59026 /* ForSearchInApiMusixMatch.swift */,
 			);
 			path = ModelsForParseJsonFiles;
@@ -103,11 +110,21 @@
 			children = (
 				8A9B73F527184AFA00934786 /* APILyricsManager.swift */,
 				8A49CA302716F07000870F9B /* TrackData.swift */,
-				8A33CE2627217B8000E7E49B /* APILyricData.swift */,
 				8A3DB0AE2726FDC600E1B6C2 /* DebouncerAPIRecuest.swift */,
 				8A5BFC7F2732CA3000472802 /* ModelObjectSearch.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8A4FB8CA273885C2009EA283 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				8A3E3E5627340F51003F36E0 /* ModelsForParseJsonFiles */,
+				8A4FB8CB273885F0009EA283 /* XMLParserForSearch.swift */,
+				8A4FB8CF27389FB0009EA283 /* XMLParserForGetLyric.swift */,
+				8A4FB8CD273887E1009EA283 /* JSONParser.swift */,
+			);
+			path = Parser;
 			sourceTree = "<group>";
 		};
 		8A79921D271EED8300BDB569 /* ViewControllers */ = {
@@ -142,7 +159,7 @@
 		8A819F092715B04A0045B027 /* SongLyrics */ = {
 			isa = PBXGroup;
 			children = (
-				8A3E3E5627340F51003F36E0 /* ModelsForParseJsonFiles */,
+				8A4FB8CA273885C2009EA283 /* Parser */,
 				8A79921D271EED8300BDB569 /* ViewControllers */,
 				8A48ABE0271D7B1800E59026 /* Models */,
 				8A819F0A2715B04A0045B027 /* AppDelegate.swift */,
@@ -304,13 +321,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A819F0F2715B04A0045B027 /* ViewController.swift in Sources */,
+				8A4FB8CC273885F0009EA283 /* XMLParserForSearch.swift in Sources */,
+				8A4FB8CE273887E1009EA283 /* JSONParser.swift in Sources */,
 				8A33CE252721743400E7E49B /* LyricViewController.swift in Sources */,
 				8A819F0B2715B04A0045B027 /* AppDelegate.swift in Sources */,
 				8A819F0D2715B04A0045B027 /* SceneDelegate.swift in Sources */,
 				8A49CA312716F07000870F9B /* TrackData.swift in Sources */,
+				8A4FB8D027389FB0009EA283 /* XMLParserForGetLyric.swift in Sources */,
 				8A9B73F627184AFA00934786 /* APILyricsManager.swift in Sources */,
 				8A5BFC802732CA3000472802 /* ModelObjectSearch.swift in Sources */,
-				8A33CE2727217B8000E7E49B /* APILyricData.swift in Sources */,
+				8A33CE2727217B8000E7E49B /* ForGetLyricInApiMusixMatch.swift in Sources */,
 				8A48ABE2271D7C1000E59026 /* ForSearchInApiMusixMatch.swift in Sources */,
 				8A3DB0AF2726FDC600E1B6C2 /* DebouncerAPIRecuest.swift in Sources */,
 			);
