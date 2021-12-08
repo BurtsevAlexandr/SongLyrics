@@ -8,20 +8,19 @@
 import Foundation
 import UIKit
 
-protocol APILyricsManagerDelegate: AnyObject {
-    func updateTableData(_: APILyricsManager, with APIData: [TrackData])
-    func setLyric(_: APILyricsManager, with APIData: TrackData)
-    func showError(_: APILyricsManager)
+protocol APIManagerDelegate: AnyObject {
+    func updateTableData(_: APIManager, with APIData: [TrackData])
+    func setLyric(_: APIManager, with APIData: TrackData)
+    func showError(_: APIManager)
 }
 
-class APILyricsManager: NSObject, XMLParserDelegate  {
+class APIManager: NSObject, XMLParserDelegate  {
     
-    weak var delegate: APILyricsManagerDelegate?
+    weak var delegate: APIManagerDelegate?
     var task: URLSessionDataTask?
     var xmlParserForSearch = XMLParserForSearch()
     var xmlParserForGetLyric = XMLParserForGetLyric()
     var parcerJSON = JSONParser()
-    
     
     func searchInApiLibrary(for searchObject: ModelObjectSearch) {
         var urlString: String

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, XMLParserDelegate, APILyricsManagerDelegate {
+class SongLyricsMainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, XMLParserDelegate, APIManagerDelegate {
     
     
     @IBOutlet weak var segmentControlAPILibrary: UISegmentedControl!
@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
-    var lyricManager = APILyricsManager()
+    var lyricManager = APIManager()
     var tracksList = [TrackData]()
     var track = TrackData(trackName: "", artistName: "", trackId: "", hasLyric: 0, lyricBody: "", lyricChecksum: "")
     var objectSearch = ModelObjectSearch(markOfSelectedLibrary: "", markOfSearchAttribute: "", artistName: "", trackName: "", wordsSearch: "", searchNumberPage: 1)
@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     //MARK: API Lyric Manager delegates
-    func updateTableData(_: APILyricsManager, with APIData: [TrackData]) {
+    func updateTableData(_: APIManager, with APIData: [TrackData]) {
         tracksList = tracksList + APIData
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -43,7 +43,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    func setLyric(_: APILyricsManager, with APIData: TrackData) {
+    func setLyric(_: APIManager, with APIData: TrackData) {
         self.track = APIData
         
         DispatchQueue.main.async {
@@ -51,7 +51,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    func showError(_: APILyricsManager) {
+    func showError(_: APIManager) {
         DispatchQueue.main.async {
             let alert = UIAlertController (title: "Connection error", message: "Unable to contact server. Please check you internet connection or try again later!" ,preferredStyle: .alert)
             let action = UIAlertAction (title: "OK", style: .default, handler: .none)
@@ -146,7 +146,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let selectedCell = tracksList[indexPath.row]
         if (selectedCell.hasLyric == 0) {
             let alert = UIAlertController (title: title, message: "Sorry, this track hasn't lyric" ,preferredStyle: .alert)
