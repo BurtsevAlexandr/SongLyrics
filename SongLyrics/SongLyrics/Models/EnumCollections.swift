@@ -9,7 +9,7 @@ import Foundation
 
 enum ListAPI {
     case musixMatch
-    case chartLyric
+    case chartLyric 
 }
 
 enum ListSearchAtributes {

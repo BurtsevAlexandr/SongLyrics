@@ -8,13 +8,13 @@
 import Foundation
 
 class ModelObjectSearch {
-    var markOfSelectedLibrary: String?
-    var markOfSearchAttribute: String?
+    var markOfSelectedLibrary: ListAPI
+    var markOfSearchAttribute: ListSearchAtributes
     var artistName: String?
     var trackName: String?
     var wordsSearch: String?
     var searchNumberPage: Int?
-    init(markOfSelectedLibrary: String?, markOfSearchAttribute: String?, artistName: String?, trackName: String?, wordsSearch: String?, searchNumberPage: Int?) {
+    init(markOfSelectedLibrary: ListAPI, markOfSearchAttribute: ListSearchAtributes, artistName: String?, trackName: String?, wordsSearch: String?, searchNumberPage: Int?) {
         self.markOfSelectedLibrary = markOfSelectedLibrary
         self.markOfSearchAttribute = markOfSearchAttribute
         self.artistName = artistName

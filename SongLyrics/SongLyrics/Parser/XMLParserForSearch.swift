@@ -10,11 +10,11 @@ import Foundation
 class XMLParserForSearch: NSObject, XMLParserDelegate {
     
     var tracks = [TrackData]()
-    var elementName: String = String()
-    var song: String = String()
-    var lyricID: Int = Int()
-    var artist: String = String()
-    var lyricChecksum: String = String()
+    var elementName = String()
+    var song = String()
+    var lyricID = Int()
+    var artist = String()
+    var lyricChecksum = String()
     var checker = 0
     
     func parseXMLForSearchInAPIChartLyric(withData data: Data) -> [TrackData]? {

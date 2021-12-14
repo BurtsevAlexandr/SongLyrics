@@ -9,15 +9,20 @@
 /* Begin PBXBuildFile section */
 		8A33CE252721743400E7E49B /* LyricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CE242721743400E7E49B /* LyricViewController.swift */; };
 		8A33CE2727217B8000E7E49B /* ForGetLyricInApiMusixMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CE2627217B8000E7E49B /* ForGetLyricInApiMusixMatch.swift */; };
-		8A3DB0AF2726FDC600E1B6C2 /* DebouncerAPIRecuest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3DB0AE2726FDC600E1B6C2 /* DebouncerAPIRecuest.swift */; };
+		8A3DB0AF2726FDC600E1B6C2 /* DebouncerAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3DB0AE2726FDC600E1B6C2 /* DebouncerAPIRequest.swift */; };
 		8A48ABE2271D7C1000E59026 /* ForSearchInApiMusixMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A48ABE1271D7C1000E59026 /* ForSearchInApiMusixMatch.swift */; };
 		8A49CA312716F07000870F9B /* TrackData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A49CA302716F07000870F9B /* TrackData.swift */; };
 		8A4FB8CC273885F0009EA283 /* XMLParserForSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FB8CB273885F0009EA283 /* XMLParserForSearch.swift */; };
 		8A4FB8CE273887E1009EA283 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FB8CD273887E1009EA283 /* JSONParser.swift */; };
 		8A4FB8D027389FB0009EA283 /* XMLParserForGetLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FB8CF27389FB0009EA283 /* XMLParserForGetLyric.swift */; };
+		8A53CDB42768D92100CF1F0F /* QueryManagerForAPIMuixMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A53CDB32768D92100CF1F0F /* QueryManagerForAPIMuixMatch.swift */; };
+		8A53CDB62768D94300CF1F0F /* QueryManagerForAPIChartLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A53CDB52768D94300CF1F0F /* QueryManagerForAPIChartLyric.swift */; };
+		8A53CDB82768DED300CF1F0F /* QueryManagerForAPIMuixMatchWithTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A53CDB72768DED300CF1F0F /* QueryManagerForAPIMuixMatchWithTrack.swift */; };
+		8A53CDBA2768DF0700CF1F0F /* QueryManagerForAPIMuixMatchWithArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A53CDB92768DF0700CF1F0F /* QueryManagerForAPIMuixMatchWithArtist.swift */; };
+		8A53CDBC2768DF4200CF1F0F /* QueryManagerForAPIMuixMatchWithAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A53CDBB2768DF4200CF1F0F /* QueryManagerForAPIMuixMatchWithAny.swift */; };
+		8A53CDBE2768DFE700CF1F0F /* QueryManagerForAPIChartLyricWithTrackAndArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A53CDBD2768DFE700CF1F0F /* QueryManagerForAPIChartLyricWithTrackAndArtist.swift */; };
+		8A53CDC02768E0B500CF1F0F /* QueryManagerForAPIChartLyricWithFragmentLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A53CDBF2768E0B500CF1F0F /* QueryManagerForAPIChartLyricWithFragmentLyric.swift */; };
 		8A5BFC802732CA3000472802 /* ModelObjectSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5BFC7F2732CA3000472802 /* ModelObjectSearch.swift */; };
-		8A6746812760DD7500A5A0C8 /* ModelObjectSearchForAPIChartLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6746802760DD7500A5A0C8 /* ModelObjectSearchForAPIChartLyric.swift */; };
-		8A6746832760DDEF00A5A0C8 /* ModelObjectSearchForAPIMusixMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6746822760DDEF00A5A0C8 /* ModelObjectSearchForAPIMusixMatch.swift */; };
 		8A6746852760DF9700A5A0C8 /* EnumCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6746842760DF9700A5A0C8 /* EnumCollections.swift */; };
 		8A819F0B2715B04A0045B027 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F0A2715B04A0045B027 /* AppDelegate.swift */; };
 		8A819F0D2715B04A0045B027 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F0C2715B04A0045B027 /* SceneDelegate.swift */; };
@@ -28,7 +33,7 @@
 		8A819F222715B04B0045B027 /* SongLyricsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F212715B04B0045B027 /* SongLyricsTests.swift */; };
 		8A819F2C2715B04B0045B027 /* SongLyricsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F2B2715B04B0045B027 /* SongLyricsUITests.swift */; };
 		8A819F2E2715B04B0045B027 /* SongLyricsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F2D2715B04B0045B027 /* SongLyricsUITestsLaunchTests.swift */; };
-		8A9B73F627184AFA00934786 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B73F527184AFA00934786 /* APIManager.swift */; };
+		8A9B73F627184AFA00934786 /* QueryManagerForAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B73F527184AFA00934786 /* QueryManagerForAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,15 +56,20 @@
 /* Begin PBXFileReference section */
 		8A33CE242721743400E7E49B /* LyricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricViewController.swift; sourceTree = "<group>"; };
 		8A33CE2627217B8000E7E49B /* ForGetLyricInApiMusixMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForGetLyricInApiMusixMatch.swift; sourceTree = "<group>"; };
-		8A3DB0AE2726FDC600E1B6C2 /* DebouncerAPIRecuest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebouncerAPIRecuest.swift; sourceTree = "<group>"; };
+		8A3DB0AE2726FDC600E1B6C2 /* DebouncerAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebouncerAPIRequest.swift; sourceTree = "<group>"; };
 		8A48ABE1271D7C1000E59026 /* ForSearchInApiMusixMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForSearchInApiMusixMatch.swift; sourceTree = "<group>"; };
 		8A49CA302716F07000870F9B /* TrackData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackData.swift; sourceTree = "<group>"; };
 		8A4FB8CB273885F0009EA283 /* XMLParserForSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParserForSearch.swift; sourceTree = "<group>"; };
 		8A4FB8CD273887E1009EA283 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		8A4FB8CF27389FB0009EA283 /* XMLParserForGetLyric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParserForGetLyric.swift; sourceTree = "<group>"; };
+		8A53CDB32768D92100CF1F0F /* QueryManagerForAPIMuixMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManagerForAPIMuixMatch.swift; sourceTree = "<group>"; };
+		8A53CDB52768D94300CF1F0F /* QueryManagerForAPIChartLyric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManagerForAPIChartLyric.swift; sourceTree = "<group>"; };
+		8A53CDB72768DED300CF1F0F /* QueryManagerForAPIMuixMatchWithTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManagerForAPIMuixMatchWithTrack.swift; sourceTree = "<group>"; };
+		8A53CDB92768DF0700CF1F0F /* QueryManagerForAPIMuixMatchWithArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManagerForAPIMuixMatchWithArtist.swift; sourceTree = "<group>"; };
+		8A53CDBB2768DF4200CF1F0F /* QueryManagerForAPIMuixMatchWithAny.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManagerForAPIMuixMatchWithAny.swift; sourceTree = "<group>"; };
+		8A53CDBD2768DFE700CF1F0F /* QueryManagerForAPIChartLyricWithTrackAndArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManagerForAPIChartLyricWithTrackAndArtist.swift; sourceTree = "<group>"; };
+		8A53CDBF2768E0B500CF1F0F /* QueryManagerForAPIChartLyricWithFragmentLyric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManagerForAPIChartLyricWithFragmentLyric.swift; sourceTree = "<group>"; };
 		8A5BFC7F2732CA3000472802 /* ModelObjectSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelObjectSearch.swift; sourceTree = "<group>"; };
-		8A6746802760DD7500A5A0C8 /* ModelObjectSearchForAPIChartLyric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelObjectSearchForAPIChartLyric.swift; sourceTree = "<group>"; };
-		8A6746822760DDEF00A5A0C8 /* ModelObjectSearchForAPIMusixMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelObjectSearchForAPIMusixMatch.swift; sourceTree = "<group>"; };
 		8A6746842760DF9700A5A0C8 /* EnumCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollections.swift; sourceTree = "<group>"; };
 		8A819F072715B04A0045B027 /* SongLyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongLyrics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A819F0A2715B04A0045B027 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,7 +84,7 @@
 		8A819F272715B04B0045B027 /* SongLyricsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SongLyricsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A819F2B2715B04B0045B027 /* SongLyricsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongLyricsUITests.swift; sourceTree = "<group>"; };
 		8A819F2D2715B04B0045B027 /* SongLyricsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongLyricsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		8A9B73F527184AFA00934786 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		8A9B73F527184AFA00934786 /* QueryManagerForAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManagerForAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,13 +124,18 @@
 		8A48ABE0271D7B1800E59026 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8A9B73F527184AFA00934786 /* APIManager.swift */,
+				8A9B73F527184AFA00934786 /* QueryManagerForAPI.swift */,
 				8A49CA302716F07000870F9B /* TrackData.swift */,
-				8A3DB0AE2726FDC600E1B6C2 /* DebouncerAPIRecuest.swift */,
+				8A3DB0AE2726FDC600E1B6C2 /* DebouncerAPIRequest.swift */,
 				8A5BFC7F2732CA3000472802 /* ModelObjectSearch.swift */,
-				8A6746802760DD7500A5A0C8 /* ModelObjectSearchForAPIChartLyric.swift */,
-				8A6746822760DDEF00A5A0C8 /* ModelObjectSearchForAPIMusixMatch.swift */,
 				8A6746842760DF9700A5A0C8 /* EnumCollections.swift */,
+				8A53CDB32768D92100CF1F0F /* QueryManagerForAPIMuixMatch.swift */,
+				8A53CDB52768D94300CF1F0F /* QueryManagerForAPIChartLyric.swift */,
+				8A53CDB72768DED300CF1F0F /* QueryManagerForAPIMuixMatchWithTrack.swift */,
+				8A53CDB92768DF0700CF1F0F /* QueryManagerForAPIMuixMatchWithArtist.swift */,
+				8A53CDBB2768DF4200CF1F0F /* QueryManagerForAPIMuixMatchWithAny.swift */,
+				8A53CDBD2768DFE700CF1F0F /* QueryManagerForAPIChartLyricWithTrackAndArtist.swift */,
+				8A53CDBF2768E0B500CF1F0F /* QueryManagerForAPIChartLyricWithFragmentLyric.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -330,21 +345,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A819F0F2715B04A0045B027 /* SongLyricsMainViewController.swift in Sources */,
+				8A53CDBE2768DFE700CF1F0F /* QueryManagerForAPIChartLyricWithTrackAndArtist.swift in Sources */,
 				8A4FB8CC273885F0009EA283 /* XMLParserForSearch.swift in Sources */,
 				8A4FB8CE273887E1009EA283 /* JSONParser.swift in Sources */,
 				8A33CE252721743400E7E49B /* LyricViewController.swift in Sources */,
 				8A6746852760DF9700A5A0C8 /* EnumCollections.swift in Sources */,
-				8A6746812760DD7500A5A0C8 /* ModelObjectSearchForAPIChartLyric.swift in Sources */,
+				8A53CDBA2768DF0700CF1F0F /* QueryManagerForAPIMuixMatchWithArtist.swift in Sources */,
 				8A819F0B2715B04A0045B027 /* AppDelegate.swift in Sources */,
 				8A819F0D2715B04A0045B027 /* SceneDelegate.swift in Sources */,
+				8A53CDB42768D92100CF1F0F /* QueryManagerForAPIMuixMatch.swift in Sources */,
+				8A53CDC02768E0B500CF1F0F /* QueryManagerForAPIChartLyricWithFragmentLyric.swift in Sources */,
 				8A49CA312716F07000870F9B /* TrackData.swift in Sources */,
-				8A6746832760DDEF00A5A0C8 /* ModelObjectSearchForAPIMusixMatch.swift in Sources */,
+				8A53CDB62768D94300CF1F0F /* QueryManagerForAPIChartLyric.swift in Sources */,
 				8A4FB8D027389FB0009EA283 /* XMLParserForGetLyric.swift in Sources */,
-				8A9B73F627184AFA00934786 /* APIManager.swift in Sources */,
+				8A53CDBC2768DF4200CF1F0F /* QueryManagerForAPIMuixMatchWithAny.swift in Sources */,
+				8A53CDB82768DED300CF1F0F /* QueryManagerForAPIMuixMatchWithTrack.swift in Sources */,
+				8A9B73F627184AFA00934786 /* QueryManagerForAPI.swift in Sources */,
 				8A5BFC802732CA3000472802 /* ModelObjectSearch.swift in Sources */,
 				8A33CE2727217B8000E7E49B /* ForGetLyricInApiMusixMatch.swift in Sources */,
 				8A48ABE2271D7C1000E59026 /* ForSearchInApiMusixMatch.swift in Sources */,
-				8A3DB0AF2726FDC600E1B6C2 /* DebouncerAPIRecuest.swift in Sources */,
+				8A3DB0AF2726FDC600E1B6C2 /* DebouncerAPIRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
