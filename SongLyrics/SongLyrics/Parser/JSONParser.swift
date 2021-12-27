@@ -17,7 +17,7 @@ class JSONParser {
             var i: Int = 0
             while i < count {
                 let trackList = APILyricManager.message.body.trackList[i]
-                let song = TrackData(trackName: trackList.track.trackName, artistName: trackList.track.artistName, trackId: String(trackList.track.trackId), hasLyric: trackList.track.hasLyrics, lyricBody: "", lyricChecksum: "")
+                let song = TrackData(trackName: trackList.track.trackName, artistName: trackList.track.artistName, trackId: String(trackList.track.trackId), hasLyric: trackList.track.hasLyrics, lyricChecksum: "")
                 arraySongs.append(song)
                 i = i + 1
             }

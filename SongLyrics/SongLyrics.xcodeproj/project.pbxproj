@@ -10,19 +10,19 @@
 		8A33CE252721743400E7E49B /* LyricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CE242721743400E7E49B /* LyricViewController.swift */; };
 		8A33CE2727217B8000E7E49B /* ForGetLyricInApiMusixMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CE2627217B8000E7E49B /* ForGetLyricInApiMusixMatch.swift */; };
 		8A3DB0AF2726FDC600E1B6C2 /* DebouncerAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3DB0AE2726FDC600E1B6C2 /* DebouncerAPIRequest.swift */; };
+		8A42C3282775CE4D00B2FDBB /* MusixMatchMapRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A42C3272775CE4D00B2FDBB /* MusixMatchMapRepository.swift */; };
+		8A42C32A2775CE9A00B2FDBB /* ChartLyricMapRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A42C3292775CE9A00B2FDBB /* ChartLyricMapRepository.swift */; };
 		8A48ABE2271D7C1000E59026 /* ForSearchInApiMusixMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A48ABE1271D7C1000E59026 /* ForSearchInApiMusixMatch.swift */; };
 		8A49CA312716F07000870F9B /* TrackData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A49CA302716F07000870F9B /* TrackData.swift */; };
 		8A4FB8CC273885F0009EA283 /* XMLParserForSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FB8CB273885F0009EA283 /* XMLParserForSearch.swift */; };
 		8A4FB8CE273887E1009EA283 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FB8CD273887E1009EA283 /* JSONParser.swift */; };
 		8A4FB8D027389FB0009EA283 /* XMLParserForGetLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FB8CF27389FB0009EA283 /* XMLParserForGetLyric.swift */; };
-		8A53CDB42768D92100CF1F0F /* QueryManagerForAPIMuixMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A53CDB32768D92100CF1F0F /* QueryManagerForAPIMuixMatch.swift */; };
-		8A53CDB62768D94300CF1F0F /* QueryManagerForAPIChartLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A53CDB52768D94300CF1F0F /* QueryManagerForAPIChartLyric.swift */; };
-		8A53CDB82768DED300CF1F0F /* QueryManagerForAPIMuixMatchWithTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A53CDB72768DED300CF1F0F /* QueryManagerForAPIMuixMatchWithTrack.swift */; };
-		8A53CDBA2768DF0700CF1F0F /* QueryManagerForAPIMuixMatchWithArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A53CDB92768DF0700CF1F0F /* QueryManagerForAPIMuixMatchWithArtist.swift */; };
-		8A53CDBC2768DF4200CF1F0F /* QueryManagerForAPIMuixMatchWithAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A53CDBB2768DF4200CF1F0F /* QueryManagerForAPIMuixMatchWithAny.swift */; };
-		8A53CDBE2768DFE700CF1F0F /* QueryManagerForAPIChartLyricWithTrackAndArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A53CDBD2768DFE700CF1F0F /* QueryManagerForAPIChartLyricWithTrackAndArtist.swift */; };
-		8A53CDC02768E0B500CF1F0F /* QueryManagerForAPIChartLyricWithFragmentLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A53CDBF2768E0B500CF1F0F /* QueryManagerForAPIChartLyricWithFragmentLyric.swift */; };
-		8A5BFC802732CA3000472802 /* ModelObjectSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5BFC7F2732CA3000472802 /* ModelObjectSearch.swift */; };
+		8A5BFC802732CA3000472802 /* SearchRequst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5BFC7F2732CA3000472802 /* SearchRequst.swift */; };
+		8A6427CC2779BA09004C391E /* PageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6427CB2779BA09004C391E /* PageInfo.swift */; };
+		8A6427CE2779BA90004C391E /* ServerResponseToSearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6427CD2779BA90004C391E /* ServerResponseToSearchQuery.swift */; };
+		8A6427D02779C820004C391E /* APILyricMapURLComposerForGetLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6427CF2779C820004C391E /* APILyricMapURLComposerForGetLyric.swift */; };
+		8A6427D22779C9B3004C391E /* APIMusixMatchMapURLComposerForGetLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6427D12779C9B3004C391E /* APIMusixMatchMapURLComposerForGetLyric.swift */; };
+		8A6427D42779C9E8004C391E /* APIChartLyricMapURLComposerForGetLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6427D32779C9E8004C391E /* APIChartLyricMapURLComposerForGetLyric.swift */; };
 		8A6746852760DF9700A5A0C8 /* EnumCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6746842760DF9700A5A0C8 /* EnumCollections.swift */; };
 		8A819F0B2715B04A0045B027 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F0A2715B04A0045B027 /* AppDelegate.swift */; };
 		8A819F0D2715B04A0045B027 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F0C2715B04A0045B027 /* SceneDelegate.swift */; };
@@ -33,7 +33,20 @@
 		8A819F222715B04B0045B027 /* SongLyricsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F212715B04B0045B027 /* SongLyricsTests.swift */; };
 		8A819F2C2715B04B0045B027 /* SongLyricsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F2B2715B04B0045B027 /* SongLyricsUITests.swift */; };
 		8A819F2E2715B04B0045B027 /* SongLyricsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A819F2D2715B04B0045B027 /* SongLyricsUITestsLaunchTests.swift */; };
-		8A9B73F627184AFA00934786 /* QueryManagerForAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B73F527184AFA00934786 /* QueryManagerForAPI.swift */; };
+		8A9F12792773474700E601C4 /* SearchRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F12782773474700E601C4 /* SearchRequestBuilder.swift */; };
+		8A9F127C277370B100E601C4 /* APILyricRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F127B277370B100E601C4 /* APILyricRepository.swift */; };
+		8A9F127E2773751C00E601C4 /* APILyricMapRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F127D2773751C00E601C4 /* APILyricMapRepository.swift */; };
+		8AB8287D2773447F006D8A0E /* SearchViewForAPIChartLyric.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB828792773447E006D8A0E /* SearchViewForAPIChartLyric.xib */; };
+		8AB8287E2773447F006D8A0E /* SearchViewForAPIMusixMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8287A2773447E006D8A0E /* SearchViewForAPIMusixMatch.swift */; };
+		8AB8287F2773447F006D8A0E /* SearchViewForAPIMusixMatch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB8287B2773447E006D8A0E /* SearchViewForAPIMusixMatch.xib */; };
+		8AB828802773447F006D8A0E /* SearchViewForAPIChartLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8287C2773447E006D8A0E /* SearchViewForAPIChartLyric.swift */; };
+		8AEE3484277477C8006B2A2E /* APIMusixMatchMapURLComposerForGetTrackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEE3483277477C8006B2A2E /* APIMusixMatchMapURLComposerForGetTrackList.swift */; };
+		8AEE348627748AB1006B2A2E /* APIChartLyricMapURLComposerForGetTrackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEE348527748AB1006B2A2E /* APIChartLyricMapURLComposerForGetTrackList.swift */; };
+		8AEE348827748ACA006B2A2E /* APILyricMapURLComposerForGetTrackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEE348727748ACA006B2A2E /* APILyricMapURLComposerForGetTrackList.swift */; };
+		8AEE348A2774963D006B2A2E /* MusixMatchMapRepositoryForSearchTrackByName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEE34892774963D006B2A2E /* MusixMatchMapRepositoryForSearchTrackByName.swift */; };
+		8AEE348C277496E0006B2A2E /* MusixMatchMapRepositoryForSearchTrackByArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEE348B277496E0006B2A2E /* MusixMatchMapRepositoryForSearchTrackByArtist.swift */; };
+		8AEE348E27749B9D006B2A2E /* MusixMatchMapRepositoryForSearchTrackByAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEE348D27749B9D006B2A2E /* MusixMatchMapRepositoryForSearchTrackByAll.swift */; };
+		8AEE349027749C1D006B2A2E /* ChartLyricMapRepositoryForSearchTrackByTrackAndArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEE348F27749C1D006B2A2E /* ChartLyricMapRepositoryForSearchTrackByTrackAndArtist.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,19 +70,19 @@
 		8A33CE242721743400E7E49B /* LyricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricViewController.swift; sourceTree = "<group>"; };
 		8A33CE2627217B8000E7E49B /* ForGetLyricInApiMusixMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForGetLyricInApiMusixMatch.swift; sourceTree = "<group>"; };
 		8A3DB0AE2726FDC600E1B6C2 /* DebouncerAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebouncerAPIRequest.swift; sourceTree = "<group>"; };
+		8A42C3272775CE4D00B2FDBB /* MusixMatchMapRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusixMatchMapRepository.swift; sourceTree = "<group>"; };
+		8A42C3292775CE9A00B2FDBB /* ChartLyricMapRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartLyricMapRepository.swift; sourceTree = "<group>"; };
 		8A48ABE1271D7C1000E59026 /* ForSearchInApiMusixMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForSearchInApiMusixMatch.swift; sourceTree = "<group>"; };
 		8A49CA302716F07000870F9B /* TrackData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackData.swift; sourceTree = "<group>"; };
 		8A4FB8CB273885F0009EA283 /* XMLParserForSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParserForSearch.swift; sourceTree = "<group>"; };
 		8A4FB8CD273887E1009EA283 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		8A4FB8CF27389FB0009EA283 /* XMLParserForGetLyric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParserForGetLyric.swift; sourceTree = "<group>"; };
-		8A53CDB32768D92100CF1F0F /* QueryManagerForAPIMuixMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManagerForAPIMuixMatch.swift; sourceTree = "<group>"; };
-		8A53CDB52768D94300CF1F0F /* QueryManagerForAPIChartLyric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManagerForAPIChartLyric.swift; sourceTree = "<group>"; };
-		8A53CDB72768DED300CF1F0F /* QueryManagerForAPIMuixMatchWithTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManagerForAPIMuixMatchWithTrack.swift; sourceTree = "<group>"; };
-		8A53CDB92768DF0700CF1F0F /* QueryManagerForAPIMuixMatchWithArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManagerForAPIMuixMatchWithArtist.swift; sourceTree = "<group>"; };
-		8A53CDBB2768DF4200CF1F0F /* QueryManagerForAPIMuixMatchWithAny.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManagerForAPIMuixMatchWithAny.swift; sourceTree = "<group>"; };
-		8A53CDBD2768DFE700CF1F0F /* QueryManagerForAPIChartLyricWithTrackAndArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManagerForAPIChartLyricWithTrackAndArtist.swift; sourceTree = "<group>"; };
-		8A53CDBF2768E0B500CF1F0F /* QueryManagerForAPIChartLyricWithFragmentLyric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManagerForAPIChartLyricWithFragmentLyric.swift; sourceTree = "<group>"; };
-		8A5BFC7F2732CA3000472802 /* ModelObjectSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelObjectSearch.swift; sourceTree = "<group>"; };
+		8A5BFC7F2732CA3000472802 /* SearchRequst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequst.swift; sourceTree = "<group>"; };
+		8A6427CB2779BA09004C391E /* PageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageInfo.swift; sourceTree = "<group>"; };
+		8A6427CD2779BA90004C391E /* ServerResponseToSearchQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponseToSearchQuery.swift; sourceTree = "<group>"; };
+		8A6427CF2779C820004C391E /* APILyricMapURLComposerForGetLyric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILyricMapURLComposerForGetLyric.swift; sourceTree = "<group>"; };
+		8A6427D12779C9B3004C391E /* APIMusixMatchMapURLComposerForGetLyric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMusixMatchMapURLComposerForGetLyric.swift; sourceTree = "<group>"; };
+		8A6427D32779C9E8004C391E /* APIChartLyricMapURLComposerForGetLyric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIChartLyricMapURLComposerForGetLyric.swift; sourceTree = "<group>"; };
 		8A6746842760DF9700A5A0C8 /* EnumCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollections.swift; sourceTree = "<group>"; };
 		8A819F072715B04A0045B027 /* SongLyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongLyrics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A819F0A2715B04A0045B027 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +97,20 @@
 		8A819F272715B04B0045B027 /* SongLyricsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SongLyricsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A819F2B2715B04B0045B027 /* SongLyricsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongLyricsUITests.swift; sourceTree = "<group>"; };
 		8A819F2D2715B04B0045B027 /* SongLyricsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongLyricsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		8A9B73F527184AFA00934786 /* QueryManagerForAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManagerForAPI.swift; sourceTree = "<group>"; };
+		8A9F12782773474700E601C4 /* SearchRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequestBuilder.swift; sourceTree = "<group>"; };
+		8A9F127B277370B100E601C4 /* APILyricRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILyricRepository.swift; sourceTree = "<group>"; };
+		8A9F127D2773751C00E601C4 /* APILyricMapRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILyricMapRepository.swift; sourceTree = "<group>"; };
+		8AB828792773447E006D8A0E /* SearchViewForAPIChartLyric.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewForAPIChartLyric.xib; sourceTree = "<group>"; };
+		8AB8287A2773447E006D8A0E /* SearchViewForAPIMusixMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewForAPIMusixMatch.swift; sourceTree = "<group>"; };
+		8AB8287B2773447E006D8A0E /* SearchViewForAPIMusixMatch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewForAPIMusixMatch.xib; sourceTree = "<group>"; };
+		8AB8287C2773447E006D8A0E /* SearchViewForAPIChartLyric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewForAPIChartLyric.swift; sourceTree = "<group>"; };
+		8AEE3483277477C8006B2A2E /* APIMusixMatchMapURLComposerForGetTrackList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMusixMatchMapURLComposerForGetTrackList.swift; sourceTree = "<group>"; };
+		8AEE348527748AB1006B2A2E /* APIChartLyricMapURLComposerForGetTrackList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIChartLyricMapURLComposerForGetTrackList.swift; sourceTree = "<group>"; };
+		8AEE348727748ACA006B2A2E /* APILyricMapURLComposerForGetTrackList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILyricMapURLComposerForGetTrackList.swift; sourceTree = "<group>"; };
+		8AEE34892774963D006B2A2E /* MusixMatchMapRepositoryForSearchTrackByName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusixMatchMapRepositoryForSearchTrackByName.swift; sourceTree = "<group>"; };
+		8AEE348B277496E0006B2A2E /* MusixMatchMapRepositoryForSearchTrackByArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusixMatchMapRepositoryForSearchTrackByArtist.swift; sourceTree = "<group>"; };
+		8AEE348D27749B9D006B2A2E /* MusixMatchMapRepositoryForSearchTrackByAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusixMatchMapRepositoryForSearchTrackByAll.swift; sourceTree = "<group>"; };
+		8AEE348F27749C1D006B2A2E /* ChartLyricMapRepositoryForSearchTrackByTrackAndArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartLyricMapRepositoryForSearchTrackByTrackAndArtist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,18 +150,13 @@
 		8A48ABE0271D7B1800E59026 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8A9B73F527184AFA00934786 /* QueryManagerForAPI.swift */,
 				8A49CA302716F07000870F9B /* TrackData.swift */,
 				8A3DB0AE2726FDC600E1B6C2 /* DebouncerAPIRequest.swift */,
-				8A5BFC7F2732CA3000472802 /* ModelObjectSearch.swift */,
+				8A5BFC7F2732CA3000472802 /* SearchRequst.swift */,
+				8A9F12782773474700E601C4 /* SearchRequestBuilder.swift */,
 				8A6746842760DF9700A5A0C8 /* EnumCollections.swift */,
-				8A53CDB32768D92100CF1F0F /* QueryManagerForAPIMuixMatch.swift */,
-				8A53CDB52768D94300CF1F0F /* QueryManagerForAPIChartLyric.swift */,
-				8A53CDB72768DED300CF1F0F /* QueryManagerForAPIMuixMatchWithTrack.swift */,
-				8A53CDB92768DF0700CF1F0F /* QueryManagerForAPIMuixMatchWithArtist.swift */,
-				8A53CDBB2768DF4200CF1F0F /* QueryManagerForAPIMuixMatchWithAny.swift */,
-				8A53CDBD2768DFE700CF1F0F /* QueryManagerForAPIChartLyricWithTrackAndArtist.swift */,
-				8A53CDBF2768E0B500CF1F0F /* QueryManagerForAPIChartLyricWithFragmentLyric.swift */,
+				8A6427CB2779BA09004C391E /* PageInfo.swift */,
+				8A6427CD2779BA90004C391E /* ServerResponseToSearchQuery.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -183,6 +204,8 @@
 		8A819F092715B04A0045B027 /* SongLyrics */ = {
 			isa = PBXGroup;
 			children = (
+				8A9F127A2773584800E601C4 /* Repositories */,
+				8AB8287627734432006D8A0E /* SearchViewsForMainViewController */,
 				8A4FB8CA273885C2009EA283 /* Parser */,
 				8A79921D271EED8300BDB569 /* ViewControllers */,
 				8A48ABE0271D7B1800E59026 /* Models */,
@@ -211,6 +234,46 @@
 				8A819F2D2715B04B0045B027 /* SongLyricsUITestsLaunchTests.swift */,
 			);
 			path = SongLyricsUITests;
+			sourceTree = "<group>";
+		};
+		8A9F127A2773584800E601C4 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				8AEE348227747784006B2A2E /* URLComposer */,
+				8A9F127B277370B100E601C4 /* APILyricRepository.swift */,
+				8A9F127D2773751C00E601C4 /* APILyricMapRepository.swift */,
+				8A42C3272775CE4D00B2FDBB /* MusixMatchMapRepository.swift */,
+				8A42C3292775CE9A00B2FDBB /* ChartLyricMapRepository.swift */,
+				8AEE34892774963D006B2A2E /* MusixMatchMapRepositoryForSearchTrackByName.swift */,
+				8AEE348B277496E0006B2A2E /* MusixMatchMapRepositoryForSearchTrackByArtist.swift */,
+				8AEE348D27749B9D006B2A2E /* MusixMatchMapRepositoryForSearchTrackByAll.swift */,
+				8AEE348F27749C1D006B2A2E /* ChartLyricMapRepositoryForSearchTrackByTrackAndArtist.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		8AB8287627734432006D8A0E /* SearchViewsForMainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8AB8287C2773447E006D8A0E /* SearchViewForAPIChartLyric.swift */,
+				8AB828792773447E006D8A0E /* SearchViewForAPIChartLyric.xib */,
+				8AB8287A2773447E006D8A0E /* SearchViewForAPIMusixMatch.swift */,
+				8AB8287B2773447E006D8A0E /* SearchViewForAPIMusixMatch.xib */,
+			);
+			path = SearchViewsForMainViewController;
+			sourceTree = "<group>";
+		};
+		8AEE348227747784006B2A2E /* URLComposer */ = {
+			isa = PBXGroup;
+			children = (
+				8AEE3483277477C8006B2A2E /* APIMusixMatchMapURLComposerForGetTrackList.swift */,
+				8AEE348527748AB1006B2A2E /* APIChartLyricMapURLComposerForGetTrackList.swift */,
+				8AEE348727748ACA006B2A2E /* APILyricMapURLComposerForGetTrackList.swift */,
+				8A6427CF2779C820004C391E /* APILyricMapURLComposerForGetLyric.swift */,
+				8A6427D12779C9B3004C391E /* APIMusixMatchMapURLComposerForGetLyric.swift */,
+				8A6427D32779C9E8004C391E /* APIChartLyricMapURLComposerForGetLyric.swift */,
+			);
+			path = URLComposer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,7 +381,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A819F172715B04B0045B027 /* LaunchScreen.storyboard in Resources */,
+				8AB8287F2773447F006D8A0E /* SearchViewForAPIMusixMatch.xib in Resources */,
 				8A819F142715B04B0045B027 /* Assets.xcassets in Resources */,
+				8AB8287D2773447F006D8A0E /* SearchViewForAPIChartLyric.xib in Resources */,
 				8A819F122715B04A0045B027 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,27 +409,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A6427D02779C820004C391E /* APILyricMapURLComposerForGetLyric.swift in Sources */,
+				8AEE3484277477C8006B2A2E /* APIMusixMatchMapURLComposerForGetTrackList.swift in Sources */,
+				8A42C3282775CE4D00B2FDBB /* MusixMatchMapRepository.swift in Sources */,
 				8A819F0F2715B04A0045B027 /* SongLyricsMainViewController.swift in Sources */,
-				8A53CDBE2768DFE700CF1F0F /* QueryManagerForAPIChartLyricWithTrackAndArtist.swift in Sources */,
 				8A4FB8CC273885F0009EA283 /* XMLParserForSearch.swift in Sources */,
 				8A4FB8CE273887E1009EA283 /* JSONParser.swift in Sources */,
+				8A6427CC2779BA09004C391E /* PageInfo.swift in Sources */,
 				8A33CE252721743400E7E49B /* LyricViewController.swift in Sources */,
 				8A6746852760DF9700A5A0C8 /* EnumCollections.swift in Sources */,
-				8A53CDBA2768DF0700CF1F0F /* QueryManagerForAPIMuixMatchWithArtist.swift in Sources */,
 				8A819F0B2715B04A0045B027 /* AppDelegate.swift in Sources */,
+				8AEE348A2774963D006B2A2E /* MusixMatchMapRepositoryForSearchTrackByName.swift in Sources */,
+				8AEE348C277496E0006B2A2E /* MusixMatchMapRepositoryForSearchTrackByArtist.swift in Sources */,
 				8A819F0D2715B04A0045B027 /* SceneDelegate.swift in Sources */,
-				8A53CDB42768D92100CF1F0F /* QueryManagerForAPIMuixMatch.swift in Sources */,
-				8A53CDC02768E0B500CF1F0F /* QueryManagerForAPIChartLyricWithFragmentLyric.swift in Sources */,
+				8AEE348627748AB1006B2A2E /* APIChartLyricMapURLComposerForGetTrackList.swift in Sources */,
 				8A49CA312716F07000870F9B /* TrackData.swift in Sources */,
-				8A53CDB62768D94300CF1F0F /* QueryManagerForAPIChartLyric.swift in Sources */,
+				8AEE348827748ACA006B2A2E /* APILyricMapURLComposerForGetTrackList.swift in Sources */,
 				8A4FB8D027389FB0009EA283 /* XMLParserForGetLyric.swift in Sources */,
-				8A53CDBC2768DF4200CF1F0F /* QueryManagerForAPIMuixMatchWithAny.swift in Sources */,
-				8A53CDB82768DED300CF1F0F /* QueryManagerForAPIMuixMatchWithTrack.swift in Sources */,
-				8A9B73F627184AFA00934786 /* QueryManagerForAPI.swift in Sources */,
-				8A5BFC802732CA3000472802 /* ModelObjectSearch.swift in Sources */,
+				8AEE348E27749B9D006B2A2E /* MusixMatchMapRepositoryForSearchTrackByAll.swift in Sources */,
+				8AB8287E2773447F006D8A0E /* SearchViewForAPIMusixMatch.swift in Sources */,
+				8AEE349027749C1D006B2A2E /* ChartLyricMapRepositoryForSearchTrackByTrackAndArtist.swift in Sources */,
+				8A9F127C277370B100E601C4 /* APILyricRepository.swift in Sources */,
+				8A6427D22779C9B3004C391E /* APIMusixMatchMapURLComposerForGetLyric.swift in Sources */,
+				8A9F127E2773751C00E601C4 /* APILyricMapRepository.swift in Sources */,
+				8A5BFC802732CA3000472802 /* SearchRequst.swift in Sources */,
 				8A33CE2727217B8000E7E49B /* ForGetLyricInApiMusixMatch.swift in Sources */,
+				8A6427D42779C9E8004C391E /* APIChartLyricMapURLComposerForGetLyric.swift in Sources */,
+				8A9F12792773474700E601C4 /* SearchRequestBuilder.swift in Sources */,
+				8A6427CE2779BA90004C391E /* ServerResponseToSearchQuery.swift in Sources */,
 				8A48ABE2271D7C1000E59026 /* ForSearchInApiMusixMatch.swift in Sources */,
 				8A3DB0AF2726FDC600E1B6C2 /* DebouncerAPIRequest.swift in Sources */,
+				8A42C32A2775CE9A00B2FDBB /* ChartLyricMapRepository.swift in Sources */,
+				8AB828802773447F006D8A0E /* SearchViewForAPIChartLyric.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

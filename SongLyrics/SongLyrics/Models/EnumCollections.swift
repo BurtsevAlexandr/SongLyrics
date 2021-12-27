@@ -13,8 +13,6 @@ enum ListAPI {
 }
 
 enum ListSearchAtributes {
-    case artistAndTrack
-    case fragmentTextLyric
     case artist
     case track
     case all

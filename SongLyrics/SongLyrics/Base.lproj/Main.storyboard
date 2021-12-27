@@ -16,26 +16,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NFg-R4-W3i">
-                                <rect key="frame" x="0.0" y="270" width="414" height="626"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NFg-R4-W3i">
+                                <rect key="frame" x="0.0" y="279" width="414" height="617"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SongItem" editingAccessoryType="detailDisclosureButton" textLabel="owZ-aE-lqO" detailTextLabel="uQl-Fg-aQC" style="IBUITableViewCellStyleSubtitle" id="sgz-76-svV">
-                                        <rect key="frame" x="0.0" y="44.5" width="600" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sgz-76-svV" id="Sxq-VU-Ik0">
-                                            <rect key="frame" x="0.0" y="0.0" width="546" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="356" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="owZ-aE-lqO">
-                                                    <rect key="frame" x="16" y="6" width="25" height="14.5"/>
+                                                    <rect key="frame" x="20" y="6" width="25" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uQl-Fg-aQC">
-                                                    <rect key="frame" x="16" y="22.5" width="40.5" height="13.5"/>
+                                                    <rect key="frame" x="20" y="22.5" width="40.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="textColor"/>
@@ -46,16 +45,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LEl-KX-v6O">
-                                <rect key="frame" x="16" y="84" width="507.5" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="changeTextField:" destination="BYZ-38-t0r" eventType="editingChanged" id="NEO-06-SOt"/>
-                                </connections>
-                            </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3WG-Mv-3X1">
-                                <rect key="frame" x="16" y="6" width="568" height="32"/>
+                                <rect key="frame" x="16" y="54" width="382" height="32"/>
                                 <segments>
                                     <segment title="MusixMatch library"/>
                                     <segment title="ChartLyric library"/>
@@ -64,66 +55,67 @@
                                     <action selector="changedValueSegmentControlAPILibrary:" destination="BYZ-38-t0r" eventType="valueChanged" id="Nbr-lb-tRq"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="c6l-2s-fpG">
-                                <rect key="frame" x="16" y="45" width="568" height="32"/>
-                                <segments>
-                                    <segment title="Artist"/>
-                                    <segment title="Track"/>
-                                    <segment title="All"/>
-                                </segments>
-                                <connections>
-                                    <action selector="changedValueSegmentControlSearchAttribetes:" destination="BYZ-38-t0r" eventType="valueChanged" id="Pqx-ci-eUS"/>
-                                </connections>
-                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFK-7m-edb">
-                                <rect key="frame" x="539.5" y="84" width="44.5" height="31"/>
+                                <rect key="frame" x="16" y="231" width="69" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="uiY-70-JBp"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Search"/>
                                 <connections>
                                     <action selector="search:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QP9-EI-h2k"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Wg-XD-8SH">
+                                <rect key="frame" x="0.0" y="93" width="414" height="128"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="128" id="G3b-1t-oxm"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="c6l-2s-fpG" firstAttribute="top" secondItem="3WG-Mv-3X1" secondAttribute="bottom" constant="8" symbolic="YES" id="1lo-Pw-sCR"/>
-                            <constraint firstItem="3WG-Mv-3X1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="6" id="2Zd-eb-DGf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c6l-2s-fpG" secondAttribute="trailing" constant="16" id="5U7-8C-FiI"/>
-                            <constraint firstItem="YFK-7m-edb" firstAttribute="top" secondItem="c6l-2s-fpG" secondAttribute="bottom" constant="8" symbolic="YES" id="9f8-zn-3ax"/>
-                            <constraint firstItem="LEl-KX-v6O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="EyD-fB-DDp"/>
-                            <constraint firstItem="YFK-7m-edb" firstAttribute="leading" secondItem="LEl-KX-v6O" secondAttribute="trailing" constant="16" id="Haq-Yh-Q9c"/>
-                            <constraint firstItem="c6l-2s-fpG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="VDi-2u-3kf"/>
-                            <constraint firstItem="3WG-Mv-3X1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="WEY-Sj-4VC"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YFK-7m-edb" secondAttribute="trailing" constant="16" id="ey6-h4-adw"/>
-                            <constraint firstItem="LEl-KX-v6O" firstAttribute="top" secondItem="c6l-2s-fpG" secondAttribute="bottom" constant="8" symbolic="YES" id="je6-xY-v0c"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3WG-Mv-3X1" secondAttribute="trailing" constant="16" id="n2G-mV-tmy"/>
+                            <constraint firstItem="3Wg-XD-8SH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Cn0-n9-Y3h"/>
+                            <constraint firstAttribute="bottom" secondItem="NFg-R4-W3i" secondAttribute="bottom" id="EVl-BC-USC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3WG-Mv-3X1" secondAttribute="trailing" constant="16" id="Fe8-J5-fPi"/>
+                            <constraint firstItem="3Wg-XD-8SH" firstAttribute="top" secondItem="3WG-Mv-3X1" secondAttribute="bottom" constant="8" id="Iya-eV-TZm"/>
+                            <constraint firstItem="YFK-7m-edb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="LQf-kz-pU6"/>
+                            <constraint firstAttribute="trailing" secondItem="3Wg-XD-8SH" secondAttribute="trailing" id="M9i-9T-gXh"/>
+                            <constraint firstItem="3WG-Mv-3X1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="PDg-PM-1XV"/>
+                            <constraint firstItem="NFg-R4-W3i" firstAttribute="trailing" secondItem="3Wg-XD-8SH" secondAttribute="trailing" id="Pqh-0x-vgh"/>
+                            <constraint firstAttribute="trailing" secondItem="NFg-R4-W3i" secondAttribute="trailing" id="Xzw-IX-zfC"/>
+                            <constraint firstItem="NFg-R4-W3i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dtz-Ff-In3"/>
+                            <constraint firstAttribute="bottom" secondItem="NFg-R4-W3i" secondAttribute="bottom" id="m5p-cN-mK1"/>
+                            <constraint firstItem="NFg-R4-W3i" firstAttribute="leading" secondItem="3Wg-XD-8SH" secondAttribute="leading" id="oSI-RV-334"/>
+                            <constraint firstItem="NFg-R4-W3i" firstAttribute="top" secondItem="YFK-7m-edb" secondAttribute="bottom" constant="16" id="od3-Zr-f73"/>
+                            <constraint firstItem="3WG-Mv-3X1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ppu-R7-l1f"/>
+                            <constraint firstItem="YFK-7m-edb" firstAttribute="top" secondItem="3Wg-XD-8SH" secondAttribute="bottom" constant="10" id="zBo-cx-DOz"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="searchTextField" destination="LEl-KX-v6O" id="FWk-P2-ryL"/>
+                        <outlet property="searchViewForAPISpace" destination="3Wg-XD-8SH" id="m7c-UA-Vp5"/>
                         <outlet property="segmentControlAPILibrary" destination="3WG-Mv-3X1" id="KY5-0b-w75"/>
-                        <outlet property="segmentControlSearchAttributes" destination="c6l-2s-fpG" id="pXD-lF-Lmc"/>
                         <outlet property="tableView" destination="NFg-R4-W3i" id="Sbp-Qy-6OQ"/>
                         <segue destination="XM2-z9-6B8" kind="presentation" identifier="ShowLyric" id="yLp-nX-ga6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-406.875" y="-494.36619718309862"/>
+            <point key="canvasLocation" x="-407.24637681159425" y="-494.86607142857139"/>
         </scene>
         <!--Lyric View Controller-->
         <scene sceneID="xYK-LZ-PpI">
             <objects>
                 <viewController id="XM2-z9-6B8" customClass="LyricViewController" customModule="SongLyrics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FwT-8E-chI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3j9-IE-sLj">
-                                <rect key="frame" x="16" y="67" width="568" height="493"/>
+                                <rect key="frame" x="16" y="67" width="382" height="721"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -144,13 +136,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGC-zF-uab">
-                                <rect key="frame" x="542" y="38" width="42" height="21"/>
+                                <rect key="frame" x="356" y="38" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KW7-UY-mXu">
-                                <rect key="frame" x="538" y="11" width="46" height="21"/>
+                                <rect key="frame" x="352" y="11" width="46" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -188,12 +180,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

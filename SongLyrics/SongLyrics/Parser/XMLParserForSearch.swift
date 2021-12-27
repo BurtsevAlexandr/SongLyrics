@@ -46,7 +46,7 @@ class XMLParserForSearch: NSObject, XMLParserDelegate {
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == "SearchLyricResult" {
             if checker == 0 {
-                let track = TrackData(trackName: song, artistName: artist, trackId: "", hasLyric: lyricID, lyricBody: "", lyricChecksum: lyricChecksum)
+                let track = TrackData(trackName: song, artistName: artist, trackId: "", hasLyric: lyricID, lyricChecksum: lyricChecksum)
                 tracks.append(track)
             }
         }

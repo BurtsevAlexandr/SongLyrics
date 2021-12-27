@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="SearchViewForAPIMusixMatch" customModule="SongLyrics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="104"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the words to search for" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zjb-be-Wab">
+                    <rect key="frame" x="16" y="58" width="382" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="FzS-hN-8N9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="changeWordsSearchTextField:" destination="iN0-l3-epB" eventType="editingChanged" id="kAF-lx-xGb"/>
+                    </connections>
+                </textField>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dSH-H7-SOA">
+                    <rect key="frame" x="16" y="10" width="382" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="OgF-mT-D54"/>
+                    </constraints>
+                    <segments>
+                        <segment title="Track"/>
+                        <segment title="Artist"/>
+                        <segment title="All"/>
+                    </segments>
+                    <connections>
+                        <action selector="changeAtributeSearch:" destination="iN0-l3-epB" eventType="valueChanged" id="65b-yA-RF0"/>
+                    </connections>
+                </segmentedControl>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="dSH-H7-SOA" secondAttribute="trailing" constant="16" id="LHf-82-ASo"/>
+                <constraint firstItem="Zjb-be-Wab" firstAttribute="top" secondItem="dSH-H7-SOA" secondAttribute="bottom" constant="16" id="VJv-RJ-4Rm"/>
+                <constraint firstAttribute="bottom" secondItem="Zjb-be-Wab" secondAttribute="bottom" constant="14" id="VxD-bg-1u1"/>
+                <constraint firstAttribute="trailing" secondItem="Zjb-be-Wab" secondAttribute="trailing" constant="16" id="deS-jt-5sz"/>
+                <constraint firstItem="Zjb-be-Wab" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="uhJ-eZ-rvi"/>
+                <constraint firstItem="dSH-H7-SOA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="ya4-zl-Mns"/>
+                <constraint firstItem="dSH-H7-SOA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="zLs-fY-Y1f"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="atributeSearchSegmentController" destination="dSH-H7-SOA" id="Dva-JE-l2i"/>
+                <outlet property="wordsSearchTextField" destination="Zjb-be-Wab" id="UUB-Oh-goc"/>
+            </connections>
+            <point key="canvasLocation" x="-20.289855072463769" y="-119.19642857142857"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

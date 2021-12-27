@@ -7,20 +7,22 @@
 
 import UIKit
 
-class SongLyricsMainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, XMLParserDelegate, QueryManagerDelegateForSearchTracks {
+class SongLyricsMainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, XMLParserDelegate {
     
+    @IBOutlet weak var searchViewForAPISpace: UIView!
     @IBOutlet weak var segmentControlAPILibrary: UISegmentedControl!
-    @IBOutlet weak var segmentControlSearchAttributes: UISegmentedControl!
-    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
-    var apiManager = QueryManagerForAPI()
     var tracksList = [TrackData]()
-    var track = TrackData(trackName: "", artistName: "", trackId: "", hasLyric: 0, lyricBody: "", lyricChecksum: "")
-    var objectSearch = ModelObjectSearch(markOfSelectedLibrary: ListAPI.musixMatch, markOfSearchAttribute: ListSearchAtributes.track, artistName: "", trackName: "", wordsSearch: "", searchNumberPage: 1)
+    var track = TrackData(trackName: "", artistName: "", trackId: "", hasLyric: 0, lyricChecksum: "")
     
-    let textFieldForTrack = UITextField()
+    var searchViewForAPIMusixMatch: SearchViewForAPIMusixMatch!
+    var searchViewForAPIChartLyric: SearchViewForAPIChartLyric!
     
+    var searchRequestBuilder: SearchRequestBuilder = .init()
+    var apiLyricRepository: APILyricRepository?
+    
+    private var infoAboutCurrentSearchPage = PageInfo(hasMorePage: true, currentPageNumber: 1)
     private var debouncer: DebouncerAPIRequest!
     private var textFieldValue = "" {
         didSet {
@@ -31,65 +33,30 @@ class SongLyricsMainViewController: UIViewController, UITableViewDelegate, UITab
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as? LyricViewController
         vc?.track = track
-        vc?.objectSearch = objectSearch
-    }
-    
-    //MARK: API Lyric Manager delegates
-    func updateTableData(_: QueryManagerForAPI, with APIData: [TrackData]) {
-        tracksList = tracksList + APIData
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-            self.objectSearch.searchNumberPage! += 1
-        }
-    }
-    
-    func showError(_: QueryManagerForAPI) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController (title: "Connection error", message: "Unable to contact server. Please check you internet connection or try again later!" ,preferredStyle: .alert)
-            let action = UIAlertAction (title: "OK", style: .default, handler: .none)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-        }
+        vc?.apiLyricRepository = apiLyricRepository
     }
     
     //MARK: Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch (true) {
-        case objectSearch.markOfSelectedLibrary == ListAPI.musixMatch && (searchTextField.text == nil || searchTextField.text == ""):
+        if tracksList.count == 0 {
             return 1
-        case objectSearch.markOfSelectedLibrary == ListAPI.chartLyric && objectSearch.markOfSearchAttribute == ListSearchAtributes.artistAndTrack && (searchTextField.text == nil || searchTextField.text == "" || textFieldForTrack.text == nil || textFieldForTrack.text == ""):
-            return 1
-        case tracksList.count == 0:
-            return 1
-        case true:
+        }
+        else {
             return tracksList.count
-        default: fatalError()
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.allowsSelection = true
         let cell = tableView.dequeueReusableCell(withIdentifier: "SongItem", for: indexPath)
-        switch (true) {
-        case objectSearch.markOfSelectedLibrary == ListAPI.musixMatch && (searchTextField.text == nil || searchTextField.text == ""):
-            cell.textLabel!.text = "Enter the words to search for"
+        if tracksList.count == 0 {
+            cell.textLabel!.text = "Nothin found"
             cell.detailTextLabel!.text = .none
             cell.accessoryType = .none
             tableView.allowsSelection = false
             return cell
-        case objectSearch.markOfSelectedLibrary == ListAPI.chartLyric && objectSearch.markOfSearchAttribute == ListSearchAtributes.artistAndTrack && (searchTextField.text == nil || searchTextField.text == "" || textFieldForTrack.text == nil || textFieldForTrack.text == ""):
-            cell.textLabel!.text = "both fields must be filled in"
-            cell.detailTextLabel!.text = .none
-            cell.accessoryType = .none
-            tableView.allowsSelection = false
-            return cell
-        case tracksList.count == 0:
-            cell.textLabel!.text = "Nothing found!"
-            cell.detailTextLabel!.text = .none
-            cell.accessoryType = .none
-            tableView.allowsSelection = false
-            return cell
-        case true:
+        }
+        else {
             let songsList = tracksList[indexPath.row]
             cell.textLabel!.text = songsList.trackName
             cell.detailTextLabel!.text = songsList.artistName
@@ -101,18 +68,14 @@ class SongLyricsMainViewController: UIViewController, UITableViewDelegate, UITab
             }
             cell.selectionStyle = .default
             return cell
-        default: fatalError()
         }
     }
     
     //MARK: Table view delegate
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if objectSearch.markOfSelectedLibrary == ListAPI.musixMatch {
-            if (indexPath.row == tracksList.count - 5) {
-                if searchTextField.text != nil {
-                    apiManager.searchInApiLibrary(for: objectSearch)
-                }
-            }
+        if (indexPath.row == tracksList.count - 5 && infoAboutCurrentSearchPage.hasMorePage) {
+            searchRequestBuilder.setNextPageSearchRequest()
+            performSearch()
         }
     }
     
@@ -130,166 +93,118 @@ class SongLyricsMainViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
-    //MARK: Segment control delegate
-    @IBAction func changedValueSegmentControlSearchAttribetes(_ sender: Any) {
-        if segmentControlAPILibrary.selectedSegmentIndex == 0 {
-            if segmentControlSearchAttributes.selectedSegmentIndex == 0 {
-                choiceAtributeArtistForAPIMusixMatch()
-            }
-            else if segmentControlSearchAttributes.selectedSegmentIndex == 1 {
-                choiceAtributeTrackForAPIMusixMatch()
-            }
-            else {
-                choiceAtributeAllForAPIMusixMatch()
-            }
-        }
-        else {
-            if segmentControlSearchAttributes.selectedSegmentIndex == 0 {
-                choiceAtributeFragmenTextLyricForAPIChartLyric()
-            }
-            else {
-                choiceAtributeArtistAndTrackForAPIChartLyric()
-            }
-        }
-    }
-    
     @IBAction func changedValueSegmentControlAPILibrary(_ sender: Any) {
-        if segmentControlAPILibrary.selectedSegmentIndex == 0 {
-            choiceApiMusixMatch()
-        }
-        else {
-            choiceApiChartLyric()
-        }
+        installCurrentSearchView()
+        makeRequestSearch()
     }
     
     @IBAction func search(_ sender: Any) {
-        tracksList.removeAll()
-        tableView.reloadData()
-        objectSearch.wordsSearch = nil
-        objectSearch.searchNumberPage = 1
-        if objectSearch.markOfSelectedLibrary == ListAPI.musixMatch{
-            objectSearch.wordsSearch = searchTextField.text
-            apiManager.searchInApiLibrary(for: objectSearch)
-        }
-        else {
-            if objectSearch.markOfSearchAttribute == ListSearchAtributes.fragmentTextLyric {
-                objectSearch.wordsSearch = searchTextField.text
-                apiManager.searchInApiLibrary(for: objectSearch)
-            }
-            else {
-                if textFieldForTrack.text != nil && textFieldForTrack.text != "" && searchTextField.text != nil && searchTextField.text != "" {
-                    objectSearch.trackName = textFieldForTrack.text
-                    objectSearch.artistName = searchTextField.text
-                    apiManager.searchInApiLibrary(for: objectSearch)
-                }
-            }
-        }
-    }
-    
-    @IBAction func changeTextField(_ sender: Any) {
-        tracksList.removeAll()
-        tableView.reloadData()
-        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableView.ScrollPosition.top, animated: true)
-        objectSearch.searchNumberPage = 1
-        if objectSearch.markOfSelectedLibrary == ListAPI.musixMatch {
-            objectSearch.wordsSearch = (sender as? UITextField)?.text ?? ""
-            textFieldValue = objectSearch.wordsSearch ?? ""
-        }
-        else {
-            if objectSearch.markOfSearchAttribute == ListSearchAtributes.fragmentTextLyric {
-                objectSearch.wordsSearch = (sender as? UITextField)?.text ?? ""
-                textFieldValue = objectSearch.wordsSearch ?? ""
-            }
-        }
+        makeRequestSearch()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        choiceApiMusixMatch()
         debouncer = DebouncerAPIRequest.init(delay: 0.5, callback: debouncerApiCall)
+        searchViewForAPIMusixMatch = loadSearchView(ofType: "SearchViewForAPIMusixMatch") as! SearchViewForAPIMusixMatch
+        searchViewForAPIChartLyric = loadSearchView(ofType: "SearchViewForAPIChartLyric") as! SearchViewForAPIChartLyric
+        searchViewForAPIMusixMatch.delegate = self
+        searchViewForAPIChartLyric.delegate = self
+        installCurrentSearchView()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.apiManager.delegateSearch = self
     }
     
     private func debouncerApiCall() {
-        apiManager.searchInApiLibrary(for: objectSearch)
+        makeRequestSearch()
     }
     
-    func choiceApiMusixMatch() {
-        if textFieldForTrack.superview == self.view.viewWithTag(3)  {
-            tableView.frame.origin.y = searchTextField.frame.origin.y + searchTextField.frame.size.height + 10
-            textFieldForTrack.removeFromSuperview()
-        }
-        segmentControlSearchAttributes.removeAllSegments()
-        segmentControlSearchAttributes.insertSegment(with: .none, at: 0, animated: false)
-        segmentControlSearchAttributes.insertSegment(with: .none, at: 1, animated: false)
-        segmentControlSearchAttributes.insertSegment(with: .none, at: 2, animated: false)
-        segmentControlSearchAttributes.setTitle("Artist", forSegmentAt: 0)
-        segmentControlSearchAttributes.setTitle("Track", forSegmentAt: 1)
-        segmentControlSearchAttributes.setTitle("All", forSegmentAt: 2)
-        segmentControlSearchAttributes.selectedSegmentIndex = 0
-        objectSearch.markOfSelectedLibrary = ListAPI.musixMatch
-        choiceAtributeArtistForAPIMusixMatch()
-    }
-    
-    func choiceApiChartLyric() {
-        segmentControlSearchAttributes.removeAllSegments()
-        segmentControlSearchAttributes.insertSegment(with: .none, at: 0, animated: false)
-        segmentControlSearchAttributes.insertSegment(with: .none, at: 1, animated: false)
-        segmentControlSearchAttributes.setTitle("Fragment text lyric", forSegmentAt: 0)
-        segmentControlSearchAttributes.setTitle("Artist and track", forSegmentAt: 1)
-        segmentControlSearchAttributes.selectedSegmentIndex = 0
-        objectSearch.markOfSelectedLibrary = ListAPI.chartLyric
-        choiceAtributeFragmenTextLyricForAPIChartLyric()
-    }
-    
-    func choiceAtributeArtistForAPIMusixMatch() {
-        objectSearch.markOfSearchAttribute = ListSearchAtributes.artist
-        searchTextField.placeholder = "Enter the artist of track"
-        tableView.reloadData()
-    }
-    func choiceAtributeTrackForAPIMusixMatch() {
-        objectSearch.markOfSearchAttribute = ListSearchAtributes.track
-        searchTextField.placeholder = "Enter the name of track"
-        tableView.reloadData()
-    }
-    func choiceAtributeAllForAPIMusixMatch() {
-        objectSearch.markOfSearchAttribute = ListSearchAtributes.all
-        searchTextField.placeholder = "Enter the words to search for"
-        tableView.reloadData()
-    }
-    
-    func choiceAtributeFragmenTextLyricForAPIChartLyric() {
-        if textFieldForTrack.superview == self.view.viewWithTag(3)  {
-            tableView.frame.origin.y = searchTextField.frame.origin.y + searchTextField.frame.size.height + 10
-            textFieldForTrack.removeFromSuperview()
-            
-        }
-        objectSearch.markOfSearchAttribute = ListSearchAtributes.fragmentTextLyric
-        searchTextField.placeholder = "Enter the fragment of text lyric"
-        tableView.reloadData()
-    }
-    func choiceAtributeArtistAndTrackForAPIChartLyric() {
-        if textFieldForTrack.superview != self.view.viewWithTag(3) {
-            textFieldForTrack.frame.size.width = searchTextField.frame.size.width
-            textFieldForTrack.frame.size.height = searchTextField.frame.size.height
-            textFieldForTrack.frame.origin.x = searchTextField.frame.origin.x
-            textFieldForTrack.frame.origin.y = searchTextField.frame.origin.y + searchTextField.frame.size.height + 10
-            textFieldForTrack.borderStyle = searchTextField.borderStyle
-            textFieldForTrack.font = searchTextField.font
-            textFieldForTrack.placeholder = "Enter the name of track"
-            searchTextField.placeholder = "Enter the artist of track"
-            tableView.frame.origin.y = textFieldForTrack.frame.origin.y + textFieldForTrack.frame.size.height + 10
-            self.view.addSubview(textFieldForTrack)
-        }
-        objectSearch.markOfSearchAttribute = ListSearchAtributes.artistAndTrack
-        tableView.reloadData()
-    }
-    
-    func creatingNewSearchQuery () {
+    func makeRequestSearch () {
+        searchRequestBuilder.setFirstPageSearchRequest()
         tracksList.removeAll()
+        infoAboutCurrentSearchPage = PageInfo(hasMorePage: true, currentPageNumber: 1)
+        performSearch()
+    }
+    
+    func performSearch () {
+        let searchRequest = searchRequestBuilder.getResult()
+    
+        apiLyricRepository?.loadingFoundTracks(searchRequest) { [weak self] trackList in
+            DispatchQueue.main.async {
+                do {
+                    let newTrackList = try trackList.get().trackList
+                    self!.infoAboutCurrentSearchPage = try trackList.get().pageInfo
+                    self!.tracksList += newTrackList
+                    self!.tableView.reloadData()
+                }
+                catch(let error) {
+                    print("Failed to get track list with error: \(error)")
+                }
+            }
+        }
         tableView.reloadData()
     }
 }
 
+extension SongLyricsMainViewController: SearchViewForAPIMusixMatchDelegate {
+    func wordsSearchTextFieldChanges(wordsSearch: String?) {
+        textFieldValue = wordsSearch ?? ""
+        searchRequestBuilder.setWordsSearch(textFieldValue)
+    }
+    
+    func atributeSearchChanged() {
+        switch searchViewForAPIMusixMatch.atributeSearchSegmentController.selectedSegmentIndex {
+        case 0:
+            apiLyricRepository = MusixMatchMapRepositoryForSearchTrackByName()
+        case 1:
+            apiLyricRepository = MusixMatchMapRepositoryForSearchTrackByArtist()
+        case 2:
+            apiLyricRepository = MusixMatchMapRepositoryForSearchTrackByAll()
+        default:
+            break
+        }
+    }
+}
+
+extension SongLyricsMainViewController: SearchViewForAPIChartLyricDelegate {
+    func textFieldForArtistChanges(artistName: String?) {
+        searchRequestBuilder.setArtistNameSearch(artistName)
+    }
+    
+    func textFieldForTrackChanges(trackName: String?) {
+        searchRequestBuilder.setTrackNameSearch(trackName)
+    }
+}
+
+private extension SongLyricsMainViewController {
+    
+    func loadSearchView(ofType viewType: String) -> UIView? {
+        Bundle.main.loadNibNamed(viewType,
+                                 owner: nil,
+                                 options: nil)?.first as? UIView
+    }
+
+    func installCurrentSearchView() {
+        switch segmentControlAPILibrary.selectedSegmentIndex {
+        case 0:
+            installSearchView(searchViewForAPIMusixMatch)
+            atributeSearchChanged()
+        case 1:
+            installSearchView(searchViewForAPIChartLyric)
+            apiLyricRepository = ChartLyricMapRepositoryForSearchTrackByTrackAndArtist()
+        default:
+            break
+        }
+    }
+
+    func installSearchView(_ searchView: UIView) {
+        searchViewForAPISpace.subviews.forEach { $0.removeFromSuperview() }
+
+        searchViewForAPISpace.addSubview(searchView)
+        
+        searchView.translatesAutoresizingMaskIntoConstraints = false
+        searchView.leadingAnchor.constraint(equalTo: searchViewForAPISpace.leadingAnchor).isActive = true
+        searchView.trailingAnchor.constraint(equalTo: searchViewForAPISpace.trailingAnchor).isActive = true
+        searchView.topAnchor.constraint(equalTo: searchViewForAPISpace.topAnchor).isActive = true
+        searchView.bottomAnchor.constraint(equalTo: searchViewForAPISpace.bottomAnchor).isActive = true
+    }
+}
